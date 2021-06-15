@@ -10,10 +10,10 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.hcl</groupId>
-	<artifactId>CapstoneRESTAPI</artifactId>
+	<artifactId>CapstoneSpringBoot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>AngularTest</name>
-	<description>Building Angular with Spring Boot</description>
+	<name>CapstoneSpringBoot</name>
+	<description>Capstone Spring Boot backend API</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
