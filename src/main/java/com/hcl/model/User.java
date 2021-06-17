@@ -42,5 +42,6 @@ public class User {
 	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "token_id")
 	private RefreshToken token;
-
+	@OneToOne(mappedBy="user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private Cart cart;
 }
