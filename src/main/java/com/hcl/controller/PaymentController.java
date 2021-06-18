@@ -5,27 +5,20 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.hcl.auth.GetAuth;
-import com.hcl.model.Payment;
-import com.hcl.model.Product;
-import com.hcl.model.User;
-import com.hcl.repo.PaymentRepo;
-import com.hcl.service.PaymentService;
-import com.hcl.service.UserService;
-
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.hcl.auth.GetAuth;
+import com.hcl.model.Payment;
+import com.hcl.model.User;
+import com.hcl.service.PaymentService;
+import com.hcl.service.UserService;
 
 //@CrossOrigin("http://localhost:4200/")
 
@@ -64,7 +57,7 @@ public class PaymentController {
 
 	// Single item
 	@GetMapping("/payments/{id}")
-	public ResponseEntity<?> onePayment(@PathVariable Long paymentMethodId) {
+	public ResponseEntity<?> onePayment(@PathVariable("id") Long paymentMethodId) {
 		User user = userService.findByUsername(authState.getAuth().getName());
 		if (user == null)
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -75,7 +68,7 @@ public class PaymentController {
 	}
 
 	@PutMapping("/payments/{id}")
-	public ResponseEntity<?> updatePayment(@RequestBody Payment newPayment, @PathVariable Long paymentMethodId) {
+	public ResponseEntity<?> updatePayment(@RequestBody Payment newPayment, @PathVariable("id") Long paymentMethodId) {
 		User user = userService.findByUsername(authState.getAuth().getName());
 		if (user == null)
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
