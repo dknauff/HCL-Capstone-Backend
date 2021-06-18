@@ -1,6 +1,5 @@
 package com.hcl.controller;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +11,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.hcl.auth.GetAuth;
 import com.hcl.model.Payment;
+import com.hcl.model.Product;
+import com.hcl.model.User;
 import com.hcl.repo.PaymentRepo;
 import com.hcl.service.PaymentService;
+import com.hcl.service.UserService;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,71 +32,67 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(path = "/payment")
 public class PaymentController {
-	
+
 	@Autowired
-	private PaymentRepo paymentRepo;
+	private PaymentService paymentService;
+	@Autowired
+	private GetAuth authState;
+	@Autowired
+	private UserService userService;
 
-//	public PaymentService getPaymentService() {
-//		return paymentService;
-//	}
-//
-//	public void setPaymentService(PaymentService paymentService) {
-//		this.paymentService = paymentService;
-//	}
+	@GetMapping("/payments")
+	public ResponseEntity<?> getAllPayment() {
+		User user = userService.findByUsername(authState.getAuth().getName());
+		if (user == null)
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		List<Payment> payments = paymentService.findAllPaymentsByUser(user);
+		return payments.isEmpty() ? new ResponseEntity<String>("No payments found.", HttpStatus.NOT_FOUND)
+				: new ResponseEntity<List<Payment>>(payments, HttpStatus.OK);
+	}
 
-	//
-	
-	  @GetMapping("/payments")
-	  List<Payment> getAllPayment() {
-	    return paymentRepo.findAll();
-	  }
-	  // end::get-aggregate-root[]
+	@PostMapping("/payments")
+	public ResponseEntity<?> createPayment(@RequestBody Payment payment) {
 
-	  @PostMapping("/payments")
-	  Payment createPayment(@RequestBody Payment payment) {
-	    return paymentRepo.save(payment);
-		//paymentRepoRepo.save(employee); 
-		//return payment;
-	  }
+		User user = userService.findByUsername(authState.getAuth().getName());
+		if (user == null)
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 
-	  // Single item
-	  @GetMapping("/payments/{id}")
-	  Payment onePayment(@PathVariable Long paymentMethodId) {
-	    
-	    return paymentRepo.findById(paymentMethodId)
-	    	.orElseThrow(null);
-	      //.orElseThrow(() -> new PaymentNotFoundException(paymentMethodId));
-	  }
+		boolean didCreate = paymentService.createPayment(user, payment);
+		return didCreate ? new ResponseEntity<>(HttpStatus.CREATED) : new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 
-	  @PutMapping("/payments/{id}")
-	  Payment updatePayment(@RequestBody Payment newPayment, @PathVariable Long paymentMethodId) {	    
-//	    return paymentRepo.findById(paymentMethodId);
-//	      .map(payment -> {
-//	        employee.setName(newPayment.getName());employee.setRole(newPayment.getRole());
-	        return paymentRepo.save(newPayment);
-//	      });
-//	      .orElseGet(() -> {
-//	        newPayment.setPaymentMethod(paymentMethodId);
-//	        return paymentRepo.save(newPayment);
-//	      });
-	  }
-	  
-	  
-//	  @RequestMapping("/student/info")
-//	  @RequestMapping(method = RequestMethod.PUT)
-//	  public @ResponseBody String updateStudent(@RequestParam(value = "stdName")String stdName){
-//	      LOG.info(stdName);
-//	      return "ok";
-//	  }
-	  
-	  
+	}
 
-	  @DeleteMapping("/payments/{paymentMethodId}")
-	  void deletepayment(@PathVariable Long paymentMethodId) {
-		  paymentRepo.deleteById(paymentMethodId);
-	  }
-	}	
-	
+	// Single item
+	@GetMapping("/payments/{id}")
+	public ResponseEntity<?> onePayment(@PathVariable Long paymentMethodId) {
+		User user = userService.findByUsername(authState.getAuth().getName());
+		if (user == null)
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		Payment paymentMethod = paymentService.findPaymentById(user, paymentMethodId);
+		return paymentMethod == null ? new ResponseEntity<String>("No payment found by ID", HttpStatus.NOT_FOUND)
+				: new ResponseEntity<Payment>(paymentMethod, HttpStatus.OK);
 
-	
+	}
 
+	@PutMapping("/payments/{id}")
+	public ResponseEntity<?> updatePayment(@RequestBody Payment newPayment, @PathVariable Long paymentMethodId) {
+		User user = userService.findByUsername(authState.getAuth().getName());
+		if (user == null)
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		boolean didUpdate = paymentService.updatePayment(user, paymentMethodId, newPayment);
+		return didUpdate ? new ResponseEntity<String>("Did update successful!", HttpStatus.ACCEPTED)
+				: new ResponseEntity<String>("update unsuccessful!", HttpStatus.BAD_REQUEST);
+	}
+
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<?> deletePaymentById(@PathVariable("id") Long paymentMethodId) {
+
+		User user = userService.findByUsername(authState.getAuth().getName());
+		if (user == null)
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		boolean didDelete = paymentService.deletePaymentById(user, paymentMethodId);
+		return didDelete ? new ResponseEntity<String>("Delete successful!", HttpStatus.OK)
+				: new ResponseEntity<String>("Delete unsuccessful!", HttpStatus.BAD_REQUEST);
+	}
+
+}

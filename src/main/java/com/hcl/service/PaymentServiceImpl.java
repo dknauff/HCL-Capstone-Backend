@@ -1,18 +1,12 @@
 package com.hcl.service;
 
-import java.util.HashSet;
-import java.util.stream.Collectors;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-//import com.hcl.model.Role;
 import com.hcl.model.Payment;
-//import com.hcl.model.User;
+import com.hcl.model.User;
 import com.hcl.repo.PaymentRepo;
-import com.hcl.repo.RoleRepo;
-import com.hcl.repo.UserRepo;
 
 @Service
 public class PaymentServiceImpl implements PaymentService {
@@ -20,39 +14,61 @@ public class PaymentServiceImpl implements PaymentService {
 	@Autowired
 	private PaymentRepo paymentRepo;
 
-
 	@Override
-	public boolean createPayment(Payment) {
-		if (payment == null) {
+	public boolean createPayment(User user, Payment payment) {
+		// TODO Auto-generated method stub
+
+		if (payment == null)
 			return false;
-		}
-		//payment.setPassword(bCrypt.encode(user.getPassword()));
-		// Set users role to corresponding roles in the database
-		// Given only the name of the roles
-		HashSet<Role> map = user.getRoles().stream().map(x -> roleRepo.findByName(x.getName()))
-				.collect(Collectors.toCollection(HashSet::new));
-		user.setRoles(map);
-		userRepo.save(user);
+
+		payment.setUser(user); // payment.setNumCartItems(0);
+		paymentRepo.save(payment);
+
 		return true;
 	}
 
 	@Override
-	public User findById(Long id) {
-		return userRepo.findById(id).orElse(null);
+	public List<Payment> findAllPaymentsByUser(User user) {
+		// TODO Auto-generated method stub
+		return paymentRepo.findAllByUser(user);
 	}
 
 	@Override
-	public User findByUsername(String username) {
-		return userRepo.findByUsername(username).orElse(null);
+	public Payment findPaymentById(User user, Long paymentMethodId) {
+		Payment payment = paymentRepo.findById(paymentMethodId).orElse(null);
+		if (payment == null)
+			return null;
+
+		if (payment.getUser() != user)
+			return null;
+
+		return payment;
 	}
 
 	@Override
-	public boolean updateUser(Long id, User user) {
-		if (!userRepo.findById(id).isPresent()) {
+	public boolean updatePayment(User user, Long paymentMethodId, Payment payment) {
+		Payment updatePayment = paymentRepo.findById(paymentMethodId).orElse(null);
+		if (updatePayment == null)
 			return false;
-		}
-		user.setId(id);
-		userRepo.save(user);
+
+		if (updatePayment.getUser() != user)
+			return false;
+		payment.setPaymentMethodId(updatePayment.getPaymentMethodId());
+		payment.setUser(user);
+		paymentRepo.save(payment);
+		return true;
+	}
+
+	@Override
+	public boolean deletePaymentById(User user, Long paymentMethodId) {
+		Payment deletePayment = paymentRepo.findById(paymentMethodId).orElse(null);
+		if (deletePayment == null)
+			return false;
+
+		if (deletePayment.getUser() != user)
+			return false;
+		paymentRepo.deleteById(paymentMethodId);
+
 		return true;
 	}
 
