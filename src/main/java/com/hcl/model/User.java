@@ -10,9 +10,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -42,6 +45,11 @@ public class User {
 	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "token_id")
 	private RefreshToken token;
-	@OneToOne(mappedBy="user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	
+	@OneToOne(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Cart cart;
+	
+	@OneToMany(mappedBy = "paymentMethodId", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JsonIgnore
+	private Set<Payment> payments;
 }
