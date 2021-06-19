@@ -29,7 +29,7 @@ public class Payment {
 	private String expDate;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "user_id", nullable = false)
+	@JoinColumn(name = "id", nullable = false)
 	@JsonIgnore
 	private User user;//mapping
 }

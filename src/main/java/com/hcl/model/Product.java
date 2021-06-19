@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,11 +17,13 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long productId;
+    private Long productId;
     private String name;
     private String description;
     private double price;
 
     // Relationship needs implementation
-    private long categoryId;
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
+	@JoinColumn(name = "category_id", nullable = false)
+    private Category category;
 }

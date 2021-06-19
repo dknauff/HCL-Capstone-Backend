@@ -53,4 +53,11 @@ public class CartServiceImpl implements CartService {
 		return false;
 	}
 
+	@Override
+	public int numberItemsCart(User user) {
+		Cart cart = cartRepo.findByUser(user);
+		if(cart == null) return 0;
+		return cart.getNumCartItems();
+	}
+
 }
