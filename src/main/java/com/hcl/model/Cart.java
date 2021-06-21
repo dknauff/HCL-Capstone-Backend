@@ -13,8 +13,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import lombok.Data;
 
 @Data
@@ -31,8 +29,8 @@ public class Cart {
 	@JoinColumn(name = "id")
 	private User user;
 	
+	//Maybe requires fetchtype.eager to function correctly
 	@OneToMany(mappedBy = "cartItemId", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JsonIgnore
 	private Set<CartItem> cartItems;
 
 }
