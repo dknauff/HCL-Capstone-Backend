@@ -4,7 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Set;
+
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Data
 @AllArgsConstructor
@@ -15,11 +19,22 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long productId;
+    private Long productId;
     private String name;
     private String description;
     private double price;
 
-    // Relationship needs implementation
-    private long categoryId;
+    // Category Relationship
+    // Needs fetchtype.eager inorder to return category in the json
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
+	@JoinColumn(name = "category_id", nullable = false)
+    private Category category;
+
+	@OneToMany(mappedBy = "cartItemId", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JsonIgnore
+	private Set<CartItem> cartItems;
+
+	@OneToMany(mappedBy = "orderItemId", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JsonIgnore
+	private Set<OrderItem> orderItems;
 }

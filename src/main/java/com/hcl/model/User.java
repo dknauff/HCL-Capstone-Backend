@@ -44,12 +44,26 @@ public class User {
 
 	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "token_id")
+	@ToString.Exclude
+	@EqualsAndHashCode.Exclude
 	private RefreshToken token;
 	
-	@OneToOne(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "cart_id")
+	@ToString.Exclude
+	@EqualsAndHashCode.Exclude
+	@JsonIgnore
 	private Cart cart;
+	
+	@OneToOne(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JsonIgnore
+	@ToString.Exclude
+	@EqualsAndHashCode.Exclude
+	private Order order;
 	
 	@OneToMany(mappedBy = "paymentMethodId", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JsonIgnore
+	@ToString.Exclude
+	@EqualsAndHashCode.Exclude
 	private Set<Payment> payments;
 }
