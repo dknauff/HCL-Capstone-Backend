@@ -8,7 +8,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -25,12 +24,11 @@ public class Cart {
 	private Long cartId;
 	private int numCartItems;
 	
-	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "id")
+	@OneToOne(mappedBy = "cart")
 	private User user;
 	
 	//Maybe requires fetchtype.eager to function correctly
-	@OneToMany(mappedBy = "cartItemId", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "cartItemId", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Set<CartItem> cartItems;
 
 }

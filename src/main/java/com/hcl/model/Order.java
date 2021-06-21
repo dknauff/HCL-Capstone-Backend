@@ -38,6 +38,6 @@ public class Order {
 	private User user;
 	
 	// May need to change fetchtype to eager in order to return json properly
-	@OneToMany(mappedBy = "orderItemId", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "orderItemId", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Set<OrderItem> orderItems;
 }
