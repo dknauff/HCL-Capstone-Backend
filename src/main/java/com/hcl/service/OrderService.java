@@ -1,15 +1,22 @@
 package com.hcl.service;
 
+import java.util.List;
+
 import com.hcl.model.Order;
+import com.hcl.model.User;
 
 public interface OrderService {
 
-	void create(Order order);
+	boolean createOrder(Order order, User user);
 	
 	Order getById(Long id);
 	
-	void update(Order order);
+	boolean updateOrder(String status, Long orderId);
 	
 	void deleteById(Long id);
+
+	Order findOrderById(User user, Long orderId);
+	
+	List<Order> findAllOrdersByUser(User user);
 	
 }
