@@ -98,9 +98,11 @@ public class CartServiceImpl implements CartService {
 	public boolean deleteCart(User user) {
 		if (user == null)
 			return false;
-		if (cartRepo.findByUser(user.getId()) == null)
+		Cart cart = cartRepo.findByUser(user.getId());
+		if (cart == null)
 			return false;
-		cartRepo.delete(cartRepo.findByUser(user.getId()));
+		cartItemRepo.findAllByCart(cart).forEach(x -> cartItemRepo.delete(x));
+		cartRepo.delete(cart);
 		user.setCart(null);
 		userRepo.save(user);
 		return true;
