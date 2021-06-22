@@ -9,6 +9,6 @@ import com.hcl.model.User;
 
 public interface OrderRepo extends JpaRepository<Order, Long> {
 
-	List<Order> findAllOrdersByUser(User user);
+	List<Order> findAllByUser(User user);
 
 }

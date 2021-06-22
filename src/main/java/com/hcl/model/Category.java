@@ -15,7 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @NoArgsConstructor
@@ -30,6 +32,8 @@ public class Category {
 	
 	@OneToMany(mappedBy = "productId", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JsonIgnore
+	@ToString.Exclude
+	@EqualsAndHashCode.Exclude
 	private Set<Product> products;
 
 }

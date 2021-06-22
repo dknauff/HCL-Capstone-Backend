@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hcl.auth.GetAuth;
+import com.hcl.model.Cart;
 import com.hcl.model.Order;
 import com.hcl.model.User;
+import com.hcl.service.CartService;
 import com.hcl.service.OrderService;
 import com.hcl.service.UserService;
 
@@ -26,6 +28,9 @@ public class OrderController {
 
 	@Autowired
 	private OrderService orderService;
+	
+	@Autowired
+	private CartService cartService;
 	
 	@Autowired
 	private GetAuth authState;
@@ -54,6 +59,16 @@ public class OrderController {
 		if (user == null)
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		
+//		Cart cart = cartService.findCartByUser(user);
+//		
+//		if(cart == null)
+//			return new ResponseEntity<String>("Cart is empty", HttpStatus.BAD_REQUEST);
+//		
+//		Order generateOrder = orderService.generateOrder(cart);
+//		
+//		if(generateOrder == null)
+//			return new ResponseEntity<String>("Error putting in order", HttpStatus.BAD_REQUEST);
+//		boolean didCreate = orderService.createOrder(generateOrder, user);
 		boolean didCreate = orderService.createOrder(order, user);
 		
 		return didCreate ? new ResponseEntity<>(HttpStatus.CREATED) : new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -74,12 +89,14 @@ public class OrderController {
 	}
 	
 	@PutMapping("/orders/{id}")
-	public ResponseEntity<?> updateOrderStatus(@RequestBody String status, @PathVariable("id") Long orderId) {
+	public ResponseEntity<?> updateOrderStatus(@RequestBody Order order, @PathVariable("id") Long orderId) {
 		User user = userService.findByUsername(authState.getAuth().getName());
 		if (user == null)
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		if(order.getOrderStatus().isEmpty())
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		
-		boolean didUpdate = orderService.updateOrder(status, orderId);
+		boolean didUpdate = orderService.updateOrder(order.getOrderStatus(), orderId);
 		return didUpdate ? new ResponseEntity<String>("Did update successful!", HttpStatus.ACCEPTED)
 				: new ResponseEntity<String>("update unsuccessful!", HttpStatus.BAD_REQUEST);
 	}
