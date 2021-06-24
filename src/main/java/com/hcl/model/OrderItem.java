@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -26,6 +28,8 @@ public class OrderItem {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long orderItemId;
 	
+	@NotNull
+	@Min(value = 1, message = "Cannot have a order item with less than 1 quantity")
 	private int itemQuantity;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)

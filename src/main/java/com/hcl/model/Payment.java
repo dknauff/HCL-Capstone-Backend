@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -21,11 +22,20 @@ public class Payment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long paymentMethodId;
+	
 	private String paymentMethod;
+	
 	private int cardNumber;
+	
+	@NotNull
 	private String firstName;
+	
+	@NotNull
 	private String lastName;
+	
 	private int cvv;
+	
+	@NotNull
 	private String expDate;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)

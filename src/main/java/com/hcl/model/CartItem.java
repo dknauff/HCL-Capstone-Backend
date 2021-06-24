@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -21,6 +23,9 @@ public class CartItem {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long cartItemId;
+	
+	@NotNull
+	@Min(value = 1, message = "Cannot have a cart item with less than 1 quantity")
 	private int itemQty;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)

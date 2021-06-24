@@ -3,6 +3,7 @@ package com.hcl.model;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -12,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -32,9 +35,19 @@ public class Order {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long orderId;
 	
-	private double taxRate;
+	@NotNull
+	@Column(scale = 3)
+	private double taxRate = 0; // Setting default taxrate to 0%
+	
+	@NotNull
+	@Column(scale = 2)
 	private double totalCost;
+	
+	@NotNull
+	@Min(value = 1, message = "Cannot have a order with no items")
 	private int totalNumItems;
+	
+	@NotNull
 	private String orderStatus;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
