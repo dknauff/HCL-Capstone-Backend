@@ -1,6 +1,8 @@
 package com.hcl.service;
 
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
@@ -35,15 +37,16 @@ public class CartServiceImpl implements CartService {
 	public boolean createCart(User user) {
 		if (user == null)
 			return false;
-		if (cartRepo.findByUser(user.getId()) != null)
+		if (cartRepo.findByUser(user) != null)
 			return false;
 		Cart cart = new Cart();
 		cart.setUser(user);
 		cart.setNumCartItems(0);
-		user.setCart(cart);
-		userRepo.save(user);
-//		cartRepo.save(cart);
-
+		cart.setCartItems(null);
+		cartRepo.save(cart);
+//		user.setCart(cart);
+//		userRepo.save(user);
+		
 		return true;
 	}
 
@@ -51,7 +54,7 @@ public class CartServiceImpl implements CartService {
 	public Cart findCartByUser(User user) {
 		if (user == null)
 			return null;
-		Cart cart = cartRepo.findByUser(user.getId());
+		Cart cart = cartRepo.findByUser(user);
 		if(cart == null) return null;
 		return cartRepo.findById(cart.getCartId()).orElse(null);
 	}
@@ -60,8 +63,7 @@ public class CartServiceImpl implements CartService {
 	public boolean updateCart(User user, Long productId, int itemQty) {
 		if (user == null || itemQty <= 0 || productId == null)
 			return false;
-		Cart cart = cartRepo.findByUser(user.getId());
-//		System.out.println(cart);
+		Cart cart = cartRepo.findByUser(user);
 		if (cart == null)
 			return false;
 		// If the total number of items in the cart surpasses MAX_VALUE of an integer
@@ -89,6 +91,7 @@ public class CartServiceImpl implements CartService {
 				cart.setNumCartItems(itemQty + cart.getNumCartItems());
 			}
 		}
+		cart.setTotalCost(cart.getTotalCost() + (itemQty * itemUpdate.getProduct().getPrice()));
 		cartItemRepo.save(itemUpdate);
 		cartRepo.save(cart);
 		return true;
@@ -98,11 +101,15 @@ public class CartServiceImpl implements CartService {
 	public boolean deleteCart(User user) {
 		if (user == null)
 			return false;
-		if (cartRepo.findByUser(user.getId()) == null)
+		Cart cart = cartRepo.findByUser(user);
+		if (cart == null)
 			return false;
-		cartRepo.delete(cartRepo.findByUser(user.getId()));
-		user.setCart(null);
-		userRepo.save(user);
+//		cartItemRepo.findAllByCart(cart).forEach(x -> cartItemRepo.delete(x));
+//		cart.setUser(null);
+//		cart.setCartItems(null);
+		cartRepo.delete(cart);
+//		user.setCart(null);
+//		userRepo.save(user);
 		return true;
 	}
 
@@ -110,7 +117,7 @@ public class CartServiceImpl implements CartService {
 	public boolean deleteCartItems(User user, Long productId, int itemQty) {
 		if (user == null || itemQty <= 0)
 			return false;
-		Cart cart = cartRepo.findByUser(user.getId());
+		Cart cart = cartRepo.findByUser(user);
 		if (cart == null)
 			return false;
 		Product product = productRepo.findById(productId).orElse(null);
@@ -123,12 +130,18 @@ public class CartServiceImpl implements CartService {
 			return false;
 		if (itemQty >= itemUpdate.getItemQty()) {
 			cart.setNumCartItems(cart.getNumCartItems() - itemUpdate.getItemQty());
-			cartItemRepo.delete(itemUpdate);
+			cart.setTotalCost(cart.getTotalCost() - (itemUpdate.getItemQty()*itemUpdate.getProduct().getPrice()));
+//			cart.setCartItems(cart.getCartItems().stream().filter(x -> x.getCartItemId() != itemUpdate.getCartItemId()).collect(Collectors.toSet()));
+//			cart.getCartItems().forEach(x -> System.out.println(x.getCartItemId()));
 			cartRepo.save(cart);
+//			cartItemRepo.delete(itemUpdate);
+			cartItemRepo.deleteById(itemUpdate.getCartItemId());
+//			cartItemRepo.flush();
 			return true;
 		}
 		itemUpdate.setItemQty(itemUpdate.getItemQty() - itemQty);
 		cart.setNumCartItems(cart.getNumCartItems() - itemQty);
+		cart.setTotalCost(cart.getTotalCost() - (itemQty*itemUpdate.getProduct().getPrice()));
 		cartItemRepo.save(itemUpdate);
 		cartRepo.save(cart);
 		return true;
@@ -138,7 +151,7 @@ public class CartServiceImpl implements CartService {
 	public int numberItemsCart(User user) {
 		if (user == null)
 			return 0;
-		Cart cart = cartRepo.findByUser(user.getId());
+		Cart cart = cartRepo.findByUser(user);
 		if (cart == null)
 			return 0;
 		return cart.getNumCartItems();
@@ -148,7 +161,7 @@ public class CartServiceImpl implements CartService {
 	public List<CartItem> itemsInCart(User user) {
 		if (user == null)
 			return null;
-		Cart cart = cartRepo.findByUser(user.getId());
+		Cart cart = cartRepo.findByUser(user);
 		if (cart == null)
 			return null;
 		return cartItemRepo.findAllByCart(cart);
