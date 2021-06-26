@@ -33,7 +33,7 @@ public class Category {
 	@NotNull
 	private String categoryName;
 	
-	@OneToMany(mappedBy = "productId", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "category", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JsonIgnore
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude

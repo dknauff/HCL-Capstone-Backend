@@ -28,7 +28,7 @@ public class CartItem {
 	@Min(value = 1, message = "Cannot have a cart item with less than 1 quantity")
 	private int itemQty;
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@ManyToOne(optional = false)
 	@JoinColumn(name = "cart_id", nullable = false)
 	@JsonIgnore
 	private Cart cart;	

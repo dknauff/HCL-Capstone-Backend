@@ -1,6 +1,8 @@
 package com.hcl.service;
 
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
@@ -40,9 +42,10 @@ public class CartServiceImpl implements CartService {
 		Cart cart = new Cart();
 		cart.setUser(user);
 		cart.setNumCartItems(0);
+		cart.setCartItems(null);
 		cartRepo.save(cart);
-		user.setCart(cart);
-		userRepo.save(user);
+//		user.setCart(cart);
+//		userRepo.save(user);
 		
 		return true;
 	}
@@ -88,6 +91,7 @@ public class CartServiceImpl implements CartService {
 				cart.setNumCartItems(itemQty + cart.getNumCartItems());
 			}
 		}
+		cart.setTotalCost(cart.getTotalCost() + (itemQty * itemUpdate.getProduct().getPrice()));
 		cartItemRepo.save(itemUpdate);
 		cartRepo.save(cart);
 		return true;
@@ -100,10 +104,12 @@ public class CartServiceImpl implements CartService {
 		Cart cart = cartRepo.findByUser(user);
 		if (cart == null)
 			return false;
-		cartItemRepo.findAllByCart(cart).forEach(x -> cartItemRepo.delete(x));
+//		cartItemRepo.findAllByCart(cart).forEach(x -> cartItemRepo.delete(x));
+//		cart.setUser(null);
+//		cart.setCartItems(null);
 		cartRepo.delete(cart);
-		user.setCart(null);
-		userRepo.save(user);
+//		user.setCart(null);
+//		userRepo.save(user);
 		return true;
 	}
 
@@ -124,12 +130,18 @@ public class CartServiceImpl implements CartService {
 			return false;
 		if (itemQty >= itemUpdate.getItemQty()) {
 			cart.setNumCartItems(cart.getNumCartItems() - itemUpdate.getItemQty());
-			cartItemRepo.delete(itemUpdate);
+			cart.setTotalCost(cart.getTotalCost() - (itemUpdate.getItemQty()*itemUpdate.getProduct().getPrice()));
+//			cart.setCartItems(cart.getCartItems().stream().filter(x -> x.getCartItemId() != itemUpdate.getCartItemId()).collect(Collectors.toSet()));
+//			cart.getCartItems().forEach(x -> System.out.println(x.getCartItemId()));
 			cartRepo.save(cart);
+//			cartItemRepo.delete(itemUpdate);
+			cartItemRepo.deleteById(itemUpdate.getCartItemId());
+//			cartItemRepo.flush();
 			return true;
 		}
 		itemUpdate.setItemQty(itemUpdate.getItemQty() - itemQty);
 		cart.setNumCartItems(cart.getNumCartItems() - itemQty);
+		cart.setTotalCost(cart.getTotalCost() - (itemQty*itemUpdate.getProduct().getPrice()));
 		cartItemRepo.save(itemUpdate);
 		cartRepo.save(cart);
 		return true;

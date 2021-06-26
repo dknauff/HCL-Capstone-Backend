@@ -37,7 +37,6 @@ public class User {
 	private String username;
 
 	@NotNull
-	@Size(min = 8, max = 25, message = "Invalid password length")
 	private String password;
 
 	@Transient
@@ -54,12 +53,11 @@ public class User {
 	@EqualsAndHashCode.Exclude
 	private RefreshToken token;
 	
-	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name="cart_id")
-	@ToString.Exclude
-	@EqualsAndHashCode.Exclude
-	@JsonIgnore
-	private Cart cart;
+//	@OneToOne(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//	@ToString.Exclude
+//	@EqualsAndHashCode.Exclude
+//	@JsonIgnore
+//	private Cart cart;
 	
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JsonIgnore
@@ -67,7 +65,7 @@ public class User {
 	@EqualsAndHashCode.Exclude
 	private Set<Order> orders;
 	
-	@OneToMany(mappedBy = "paymentMethodId", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JsonIgnore
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude

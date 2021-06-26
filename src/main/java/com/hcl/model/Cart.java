@@ -9,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -16,6 +17,8 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Data
 @Entity
@@ -26,20 +29,23 @@ public class Cart {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long cartId;
 
-//  TO BE IMPLEMENTED
-//	@NotNull
-//	@Column(scale = 2)
-//	private double totalCost;
+	@NotNull
+	@Column(scale = 2)
+	private double totalCost;
 	
 	@NotNull
-	@Min(value = 1, message = "Cannot have a cart with no items")
+	@Min(value = 0, message = "Cannot have a cart with less than zero items")
 	private int numCartItems;
 	
-	@OneToOne(mappedBy = "cart")
+//	@OneToOne(mappedBy = "cart", cascade = CascadeType.PERSIST)
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+	@JoinColumn(name="id")
 	private User user;
 	
 	//Maybe requires fetchtype.eager to function correctly
-	@OneToMany(mappedBy = "cartItemId", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "cart", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, orphanRemoval = true)
+	@ToString.Exclude
+	@EqualsAndHashCode.Exclude
 	private Set<CartItem> cartItems;
 
 }
