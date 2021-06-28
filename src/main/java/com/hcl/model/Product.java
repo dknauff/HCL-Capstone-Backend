@@ -13,8 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -28,35 +28,37 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="orders")
-public class Order {
+@Table(name="products")
+public class Product {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long orderId;
-	
-	@NotNull
-	@Column(scale = 3)
-	private double taxRate = 0; // Setting default taxrate to 0%
-	
-	@NotNull
-	@Column(scale = 2)
-	private double totalCost;
-	
-	@NotNull
-	@Min(value = 1, message = "Cannot have a order with no items")
-	private int totalNumItems;
-	
-	@NotNull
-	private String orderStatus;
-	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "id", nullable = false)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long productId;
+    
+    @NotNull
+    private String name;
+    
+    @NotNull
+    private String description;
+    
+    @NotNull
+    @Column(scale = 2)
+    private double price;
+
+    // Category Relationship
+    // Needs fetchtype.eager inorder to return category in the json
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
+	@JoinColumn(name = "category_id", nullable = false)
+    private Category category;
+
+	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonIgnore
-	private User user;
-	
-	// May need to change fetchtype to eager in order to return json properly
-	@OneToMany(mappedBy = "orderItemId", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ToString.Exclude
+	@EqualsAndHashCode.Exclude
+	private Set<CartItem> cartItems;
+
+	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JsonIgnore
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude
 	private Set<OrderItem> orderItems;

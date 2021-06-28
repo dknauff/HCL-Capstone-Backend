@@ -13,31 +13,29 @@ import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
-@Table(name="order_item")
-public class OrderItem {
+@Table(name = "cart_item")
+public class CartItem {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long orderItemId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long cartItemId;
 	
 	@NotNull
-	@Min(value = 1, message = "Cannot have a order item with less than 1 quantity")
-	private int itemQuantity;
+	@Min(value = 1, message = "Cannot have a cart item with less than 1 quantity")
+	private int itemQty;
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "order_id", nullable = false)
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "cart_id", nullable = false)
 	@JsonIgnore
-	private Order order;
+	private Cart cart;	
 	
 	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	@JoinColumn(name = "product_id", nullable = false)
 	private Product product;
+	
+
 }
