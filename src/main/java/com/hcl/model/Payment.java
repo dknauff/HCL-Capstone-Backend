@@ -1,9 +1,5 @@
 package com.hcl.model;
 
-import java.util.Set;
-import java.io.Serializable;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -11,13 +7,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import lombok.AllArgsConstructor;
+import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
 
 @Data
 @Entity
@@ -27,14 +22,24 @@ public class Payment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long paymentMethodId;
+	
 	private String paymentMethod;
+	
 	private int cardNumber;
+	
+	@NotNull
 	private String firstName;
+	
+	@NotNull
 	private String lastName;
+	
 	private int cvv;
+	
+	@NotNull
 	private String expDate;
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = false)
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "id", nullable = false)
+	@JsonIgnore
 	private User user;//mapping
 }

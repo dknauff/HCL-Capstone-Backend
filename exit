@@ -1,0 +1,35 @@
+[33m6ecc24f[m[33m ([m[1;36mHEAD -> [m[1;32mfrank[m[33m, [m[1;31morigin/dev[m[33m, [m[1;32mdev[m[33m)[m HEAD@{0}: merge dev: Fast-forward
+[33mb937d30[m HEAD@{1}: checkout: moving from dev to frank
+[33m6ecc24f[m[33m ([m[1;36mHEAD -> [m[1;32mfrank[m[33m, [m[1;31morigin/dev[m[33m, [m[1;32mdev[m[33m)[m HEAD@{2}: pull: Fast-forward
+[33mb937d30[m HEAD@{3}: checkout: moving from frank to dev
+[33mb937d30[m HEAD@{4}: merge dev: Fast-forward
+[33m31b6229[m[33m ([m[1;31morigin/frank[m[33m)[m HEAD@{5}: checkout: moving from dev to frank
+[33mb937d30[m HEAD@{6}: pull: Fast-forward
+[33m31b6229[m[33m ([m[1;31morigin/frank[m[33m)[m HEAD@{7}: checkout: moving from frank to dev
+[33m31b6229[m[33m ([m[1;31morigin/frank[m[33m)[m HEAD@{8}: checkout: moving from dev to frank
+[33m31b6229[m[33m ([m[1;31morigin/frank[m[33m)[m HEAD@{9}: merge frank: Fast-forward
+[33m281989a[m HEAD@{10}: checkout: moving from frank to dev
+[33m31b6229[m[33m ([m[1;31morigin/frank[m[33m)[m HEAD@{11}: commit: Added OrderRepo, OrderService, and OrderServiceImpl
+[33mc559a3b[m HEAD@{12}: commit: .gitignore should be fixed
+[33m2c4d49c[m HEAD@{13}: commit: Attempt to fix .gitignore for application.properties
+[33m281989a[m HEAD@{14}: checkout: moving from dev to frank
+[33m281989a[m HEAD@{15}: pull: Fast-forward
+[33m97e80dd[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{16}: checkout: moving from frank to dev
+[33ma56fe58[m HEAD@{17}: reset: moving to HEAD
+[33ma56fe58[m HEAD@{18}: commit: Attempt to fix .gitignore for application.properties. Added OrderService and OrderRepo
+[33m97e80dd[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{19}: reset: moving to HEAD
+[33m97e80dd[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{20}: checkout: moving from dev to frank
+[33m97e80dd[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{21}: checkout: moving from main to dev
+[33m97e80dd[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{22}: checkout: moving from frank to main
+[33m97e80dd[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{23}: checkout: moving from main to frank
+[33m97e80dd[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{24}: reset: moving to HEAD
+[33m97e80dd[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{25}: merge frank-order-schema: Fast-forward
+[33m0b5edb2[m HEAD@{26}: checkout: moving from frank-order-schema to main
+[33m97e80dd[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{27}: commit: updated .gitignore to include application.properties
+[33m0b5edb2[m HEAD@{28}: checkout: moving from main to frank-order-schema
+[33m0b5edb2[m HEAD@{29}: merge frank-order-schema: Fast-forward
+[33m4aeb9ad[m HEAD@{30}: checkout: moving from frank-order-schema to main
+[33m0b5edb2[m HEAD@{31}: commit: new classes: order and orderItem.
+[33m4aeb9ad[m HEAD@{32}: checkout: moving from main to frank-order-schema
+[33m4aeb9ad[m HEAD@{33}: pull: Fast-forward
+[33m57205fa[m HEAD@{34}: clone: from github.com:Group-5-NV-April-Freshers/CapstoneSpringBoot.git

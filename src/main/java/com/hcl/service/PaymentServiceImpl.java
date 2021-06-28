@@ -39,8 +39,8 @@ public class PaymentServiceImpl implements PaymentService {
 		if (payment == null)
 			return null;
 
-		if (payment.getUser() != user)
-			return null;
+//		if (payment.getUser() != user)
+//			return null;
 
 		return payment;
 	}
