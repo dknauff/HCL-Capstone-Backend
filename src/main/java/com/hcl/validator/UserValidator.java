@@ -52,7 +52,7 @@ public class UserValidator implements Validator {
 		} else {
 			user.getRoles().forEach(x -> {
 				if (roleService.findRole(x.getName()) == null) {
-					errors.rejectValue("role", "NotExist.userForm.role");
+					errors.rejectValue("roles", "NotExist.userForm.role");
 				}
 			});
 		}

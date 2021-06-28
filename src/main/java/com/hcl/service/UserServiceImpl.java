@@ -32,8 +32,10 @@ public class UserServiceImpl implements UserService {
 		user.setPassword(bCrypt.encode(user.getPassword()));
 		// Set users role to corresponding roles in the database
 		// Given only the name of the roles
-		HashSet<Role> map = user.getRoles().stream().map(x -> roleRepo.findByName(x.getName()))
+		HashSet<Role> map = user.getRoles().stream().filter(x -> roleRepo.findByName(x.getName())!= null).map(x -> roleRepo.findByName(x.getName()))
 				.collect(Collectors.toCollection(HashSet::new));
+		if(map == null || map.isEmpty())
+			return false;
 		user.setRoles(map);
 		userRepo.save(user);
 		return true;
