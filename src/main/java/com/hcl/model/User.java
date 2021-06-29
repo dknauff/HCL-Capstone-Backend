@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -43,6 +44,7 @@ public class User {
 	private String passwordConfirm;
 
 	@ManyToMany
+	@JoinTable(name = "user_roles", joinColumns = @JoinColumn(nullable = false))
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude
 	private Set<Role> roles;
