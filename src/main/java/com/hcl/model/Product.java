@@ -44,6 +44,9 @@ public class Product {
     @NotNull
     @Column(scale = 2)
     private double price;
+    
+    @NotNull
+    private boolean instock = true;
 
     // Category Relationship
     // Needs fetchtype.eager inorder to return category in the json
