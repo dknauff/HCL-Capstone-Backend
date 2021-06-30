@@ -71,7 +71,7 @@ public class ProductController {
 		return updated ? new ResponseEntity<String>("Updated successfully", HttpStatus.OK)
 				: new ResponseEntity<String>("Unsuccessful update", HttpStatus.BAD_REQUEST);
 	}
-
+  
 	@GetMapping("/products/{query}")
 	public ResponseEntity<List<Product>> searchByProductName(@PathVariable String query){
 		return new ResponseEntity<>(productService.searchByProductName(query), HttpStatus.OK);
