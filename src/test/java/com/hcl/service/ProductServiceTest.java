@@ -3,6 +3,7 @@ package com.hcl.service;
 
 import static org.assertj.core.api.Assertions.fail;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.hcl.model.Category;
 import com.hcl.model.Product;
 import com.hcl.repo.ProductRepo;
 
@@ -34,21 +36,13 @@ public class ProductServiceTest {
 	}
 	
 	@Test
-	public void testAddProduct() {
-		//fail("Test not yet implemented"); // This is like a To-Do
+	public void testAddProduct() {		
+		Category categoryTest = new Category(null, "test", null);
+		categoryService.addCategory(categoryTest);
+		Product product1 = new Product(901L, "Guitar XYZ", "Instrument with Strings", 999.99, categoryTest, null, null );
+
+		assertNotNull(productService.addProduct(product1)); // Passed
 		
-		
-		
-		Product product1 = new Product(901L, "Guitar XYZ", "Instrument with Strings", 999.99, null, null, null );
-		/*
-		 * product1.setProductId(901L); product1.setName("Guitar XYZ");
-		 * product1.setDescription("Instrument with Strings");
-		 * product1.setPrice(999.99);
-		 */
-		
-		productService.addProduct(product1);
-		List<Product> list = productService.findAllProducts();
-		assertTrue(list.contains(product1));
 	} 
 	
 	@Test
