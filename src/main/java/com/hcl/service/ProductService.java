@@ -1,39 +1,19 @@
 package com.hcl.service;
 
-import com.hcl.model.Product;
-import com.hcl.repo.ProductRepo;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 
-@Service
-@Transactional
-public class ProductService {
+import com.hcl.model.Product;
 
-    @Autowired
-    private ProductRepo repo;
+public interface ProductService {
 
-    public Product addProduct(Product product) {
-        return repo.save(product);
-    }
+    Product addProduct(Product product);
 
-    public List<Product> findAllProducts() {
-        return repo.findAll();
-    }
+    List<Product> findAllProducts();
+    
+    Product findProductById(Long id);
 
-    public Product findAllProductById(Long id) {
-        return repo.findProductByProductId(id).orElseThrow(() -> new UsernameNotFoundException("User by id " + id + "was not found"));
-    }
+    Product updateProduct(Product product, Long id);
 
-    public Product updateProduct(Product product, Long id) {
-        product.setProductId(id);
-        return repo.save(product);
-    }
-
-    public void deleteProduct(Long id) {
-        repo.deleteProductByProductId(id);
-    }
+    void deleteProduct(Long id);
+	
 }
