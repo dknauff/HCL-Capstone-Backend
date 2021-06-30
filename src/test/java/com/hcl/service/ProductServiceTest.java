@@ -39,7 +39,7 @@ public class ProductServiceTest {
 		
 		
 		
-		Product product1 = new Product(901L, "Guitar XYZ", "Instrument with Strings", 999.99, null, null, null );
+		Product product1 = new Product(901L, "Guitar XYZ", "Instrument with Strings", 999.99, true, null, null, null );
 		/*
 		 * product1.setProductId(901L); product1.setName("Guitar XYZ");
 		 * product1.setDescription("Instrument with Strings");
