@@ -34,3 +34,4 @@ build/
 
 ### Ignoring application.properties ###
 src/main/resources/application.properties
+.DS_STORE

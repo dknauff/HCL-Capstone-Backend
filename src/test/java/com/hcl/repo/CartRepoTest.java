@@ -71,16 +71,6 @@ class CartRepoTest {
 		cart = null;
 		cart = cartRepo.findById(1L).orElse(null);
 		assertTrue(cart.getNumCartItems() == 97);
-		
-		cart.setTotalCost(24);
-		try {
-			cartRepo.save(cart);
-		} catch (Exception e) {
-			fail(e.getMessage());
-		}
-		cart = null;
-		cart = cartRepo.findById(1L).orElse(null);
-		assertTrue(cart.getTotalCost() == 24);
 	}
 
 	@Test

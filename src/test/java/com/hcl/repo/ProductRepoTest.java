@@ -116,5 +116,10 @@ class ProductRepoTest {
 		productRepo.deleteById(1L);
 		assertFalse(productRepo.findById(1L).isPresent());
 	}
+	
+	@Test
+	public void testFindAllUserQuery() {
+		assertTrue(productRepo.findAllUsersWhereCartHasProduct(1L).size() == 0);
+	}
 
 }

@@ -21,6 +21,9 @@ public class CategoryService {
 	@Autowired
 	private ProductRepo productRepo;
 	
+	@Autowired
+	private ProductService productService;
+	
 	public Category addCategory(Category category) {
 		if (category == null)
 			return null;
@@ -80,7 +83,7 @@ public class CategoryService {
 			if(!category.isInstock()) {
 				List<Product> products = productRepo.findAllByInstockAndCategory(true, category);
 				products.forEach(x -> {
-					x.setInstock(false);
+					productService.setStock(x.getProductId(), false);
 				});
 				productRepo.saveAll(products);
 			}

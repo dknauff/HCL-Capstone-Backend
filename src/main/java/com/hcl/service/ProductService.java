@@ -10,8 +10,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.hcl.model.Category;
 import com.hcl.model.Product;
+import com.hcl.model.User;
 import com.hcl.repo.CategoryRepo;
 import com.hcl.repo.ProductRepo;
+import com.hcl.repo.UserRepo;
 
 @Service
 @Transactional
@@ -23,6 +25,12 @@ public class ProductService {
     @Autowired
     private CategoryRepo categoryRepo;
 
+    @Autowired
+    private UserRepo userRepo;
+    
+    @Autowired
+    private CartService cartService;
+    
     public Product addProduct(Product product) {
     	if(product.getCategory() == null || product.getCategory().getCategoryId() == null)
     		return null;
@@ -73,6 +81,11 @@ public class ProductService {
     	
     	product.setInstock(instock);
     	productRepo.save(product);
+    	if(instock)
+    		return true;
+    	List<Long> uids = productRepo.findAllUsersWhereCartHasProduct(id);
+    	List<User> users = userRepo.findAllById(uids);
+    	users.forEach(x -> cartService.deleteCartItems(x, id, Integer.MAX_VALUE));
     	return true;
     }
     
@@ -88,6 +101,11 @@ public class ProductService {
     		return new ArrayList<>();
     	
     	return productRepo.findAllByInstockAndCategory(instock, cat);
-    	
+    }
+    
+    public List<Product> searchByProductName(String query){
+    	if(query == null)
+    		return new ArrayList<>();
+    	return productRepo.productNameSearchQuery(query + "%");
     }
 }

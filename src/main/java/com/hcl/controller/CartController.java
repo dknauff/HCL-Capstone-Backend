@@ -42,6 +42,15 @@ public class CartController {
 		return didCreate ? new ResponseEntity<>(HttpStatus.CREATED) : new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 
 	}
+	
+	@GetMapping()
+	public ResponseEntity<?> getCart() {
+		User user = userService.findByUsername(authState.getAuth().getName());
+		if (user == null)
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		Cart cart = cartService.findCartByUser(user);
+		return new ResponseEntity<Cart>(cart, HttpStatus.OK);
+	}
 
 	@GetMapping(path = "/items")
 	public ResponseEntity<?> getCartItems(){
