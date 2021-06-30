@@ -33,6 +33,9 @@ public class Category {
 	@NotNull
 	private String categoryName;
 	
+	@NotNull
+	private boolean instock = true;
+	
 	@OneToMany(mappedBy = "category", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JsonIgnore
 	@ToString.Exclude
