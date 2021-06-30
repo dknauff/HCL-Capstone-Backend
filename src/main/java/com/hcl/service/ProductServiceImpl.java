@@ -41,8 +41,4 @@ public class ProductServiceImpl implements ProductService {
 		productRepo.deleteProductByProductId(id);
 		
 	}
-
-
-
-
 }

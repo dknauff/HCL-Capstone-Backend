@@ -51,7 +51,7 @@ public class Product {
 	@JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
-	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "product", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonIgnore
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude
