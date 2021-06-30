@@ -15,5 +15,12 @@ public interface ProductService {
     Product updateProduct(Product product, Long id);
 
     void deleteProduct(Long id);
-	
+  
+    boolean setStock(Long id, boolean instock);
+    
+    List<Product> findAllInstockProducts(boolean instock);
+    
+    List<Product> findAllByCategoryInstock(boolean instock, Long categoryId);
+    
+    List<Product> searchByProductName(String query);
 }

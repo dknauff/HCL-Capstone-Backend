@@ -23,10 +23,24 @@ public class CategoryController {
 	@Autowired
 	private CategoryService categoryService;
 
-	@PostMapping("/add")
+	@PostMapping()
 	public ResponseEntity<Category> addCategory(@RequestBody Category category) {
 		Category newCategory = categoryService.addCategory(category);
 		return new ResponseEntity<>(newCategory, HttpStatus.CREATED);
+	}
+
+	@PutMapping("/{id}")
+	public ResponseEntity<Category> updateCategoryById(@RequestBody Category category, @PathVariable Long id) {
+		Category updatedCategory = categoryService.updateCategory(category, id);
+		return new ResponseEntity<>(updatedCategory, HttpStatus.OK);
+
+	}
+
+	@DeleteMapping("/{id}")
+	public ResponseEntity<Category> deleteCategoryById(@PathVariable("id") Long id) {
+		categoryService.deleteCategory(id);
+		return new ResponseEntity<>(HttpStatus.OK);
+
 	}
 
 	@GetMapping("/categories")
@@ -42,18 +56,16 @@ public class CategoryController {
 		return new ResponseEntity<>(category, HttpStatus.OK);
 
 	}
-
-	@PutMapping("/update/{id}")
-	public ResponseEntity<Category> updateCategoryById(@RequestBody Category category, @PathVariable Long id) {
-		Category updatedCategory = categoryService.updateCategory(category, id);
-		return new ResponseEntity<>(updatedCategory, HttpStatus.OK);
-
+	
+	@GetMapping("/instock")
+	public ResponseEntity<List<Category>> getAllCategoriesInstock(){
+		return new ResponseEntity<>(categoryService.findAllInstock(true), HttpStatus.OK);
 	}
-
-	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<Category> deleteCategoryById(@PathVariable("id") Long id) {
-		categoryService.deleteCategory(id);
-		return new ResponseEntity<>(HttpStatus.OK);
-
+	
+	@PutMapping("/instock/{id}")
+	public ResponseEntity<String> updateInstock(@RequestBody boolean instock, @PathVariable Long id){
+		boolean updated = categoryService.updateInstock(instock, id);
+		return updated ? new ResponseEntity<>("Updated successfully", HttpStatus.OK)
+				: new ResponseEntity<>("Unsuccessful update", HttpStatus.OK);
 	}
 }
