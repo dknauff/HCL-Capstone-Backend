@@ -30,13 +30,13 @@ public class ProductServiceTest {
 
 	@BeforeEach
 	public void seedData() {
-		Category categoryTest = new Category(null, "test", null);
+		Category categoryTest = new Category(null, "test", true, null);
 		categoryService.addCategory(categoryTest);
-		Product productTest1 = new Product(901L, "Neon Guitar XYZ", "Instrument with Strings", 999.99, categoryTest,
+		Product productTest1 = new Product(901L, "Neon Guitar XYZ", "Instrument with Strings", 999.99, true, categoryTest,
 				null, null);
-		Product productTest2 = new Product(902L, "Red Guitar XYZ", "Instrument with Strings", 999.99, categoryTest,
+		Product productTest2 = new Product(902L, "Red Guitar XYZ", "Instrument with Strings", 999.99, true, categoryTest,
 				null, null);
-		Product productTest3 = new Product(903L, "Black Guitar XYZ", "Instrument with Strings", 999.99, categoryTest,
+		Product productTest3 = new Product(903L, "Black Guitar XYZ", "Instrument with Strings", 999.99, true, categoryTest,
 				null, null);
 		productRepo.save(productTest1);
 		productRepo.save(productTest2);
@@ -53,9 +53,9 @@ public class ProductServiceTest {
 
 	@Test
 	public void testAddProduct() { // Passed
-		Category categoryTestAdd = new Category(null, "test", null);
+		Category categoryTestAdd = new Category(null, "test", true, null);
 		categoryService.addCategory(categoryTestAdd);
-		Product product1 = new Product(1L, "Guitar XYZ", "Instrument with Strings", 999.99, categoryTestAdd, null,
+		Product product1 = new Product(1L, "Guitar XYZ", "Instrument with Strings", 999.99, true, categoryTestAdd, null,
 				null);
 
 		assertNotNull(productService.addProduct(product1));

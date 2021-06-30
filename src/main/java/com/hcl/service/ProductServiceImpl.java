@@ -74,12 +74,6 @@ public class ProductServiceImpl implements ProductService {
         return productRepo.save(product);
     }
 
-    @Override
-    public void deleteProduct(Long id) {
-    	if(id == null)
-    		return;
-        productRepo.deleteById(id);
-    }
     
     @Override
     public boolean setStock(Long id, boolean instock) {
