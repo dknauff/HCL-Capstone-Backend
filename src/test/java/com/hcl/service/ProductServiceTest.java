@@ -4,6 +4,8 @@ import static org.assertj.core.api.Assertions.fail;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import java.util.List;
 
@@ -14,6 +16,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.hcl.model.Category;
 import com.hcl.model.Product;
+import com.hcl.repo.CategoryRepo;
 import com.hcl.repo.ProductRepo;
 
 @SpringBootTest
@@ -26,73 +29,106 @@ public class ProductServiceTest {
 	private ProductRepo productRepo;
 
 	@Autowired
-	private CategoryService categoryService;
+	private CategoryRepo categoryRepo;
 
 	@BeforeEach
 	public void seedData() {
 		Category categoryTest = new Category(null, "test", true, null);
-		categoryService.addCategory(categoryTest);
-		Product productTest1 = new Product(901L, "Neon Guitar XYZ", "Instrument with Strings", 999.99, true, categoryTest,
-				null, null);
-		Product productTest2 = new Product(902L, "Red Guitar XYZ", "Instrument with Strings", 999.99, true, categoryTest,
-				null, null);
-		Product productTest3 = new Product(903L, "Black Guitar XYZ", "Instrument with Strings", 999.99, true, categoryTest,
-				null, null);
+		categoryRepo.save(categoryTest);
+		Product productTest1 = new Product(null, "Neon Guitar XYZ", "Instrument with Strings", 999.99, true,
+				null, categoryTest, null, null);
+		Product productTest2 = new Product(null, "Red Guitar XYZ", "Instrument with Strings", 999.99, true,
+				null, categoryTest, null, null);
+		Product productTest3 = new Product(null, "Black Guitar XYZ", "Instrument with Strings", 999.99, true,
+				null, categoryTest, null, null);
+
 		productRepo.save(productTest1);
 		productRepo.save(productTest2);
 		productRepo.save(productTest3);
-
 	}
 
 	@Test
 	public void testAutowired() {
 		assertNotNull(productService);
 		assertNotNull(productRepo);
-		assertNotNull(categoryService);
-	}
-
-	@Test
-	public void testAddProduct() { // Passed
-		Category categoryTestAdd = new Category(null, "test", true, null);
-		categoryService.addCategory(categoryTestAdd);
-		Product product1 = new Product(1L, "Guitar XYZ", "Instrument with Strings", 999.99, true, categoryTestAdd, null,
-				null);
-
-		assertNotNull(productService.addProduct(product1));
-	}
-
-	@Test
-	public void testFindAllProducts() {
-		// fail("Test not yet implemented");
-
-		List<Product> list = productService.findAllProducts();
-
-		assertTrue(list.contains(productService.findProductById(901L)));
-		assertTrue(list.contains(productService.findProductById(902L)));
-		assertTrue(list.contains(productService.findProductById(903L)));
-
+		assertNotNull(categoryRepo);
 	}
 
 	@Test
 	public void testFindProductById() {
-		fail("Test not yet implemented");
+
+		Product product = null;
+
+		product = productService.findProductById(1L);
+
+		System.out.println("Product name is " + product.getName());
+
+		assertNotNull(product);
+	}
+
+	@Test
+	public void testDeleteProduct() { // fail("Test not yet implemented");
+
+		productService.deleteProduct(1L);
+
+		Product product = productService.findProductById(1L);
+
+		assertNull(product);
+
 	}
 
 	@Test
 	public void testUpdateProduct() {
-		fail("Test not yet implemented");
+
+		Product product = productService.findProductById(1L);
+
+		assertEquals(true, product.isInstock());
+		assertEquals(999.99, product.getPrice());
+
+		product.setInstock(false);
+		product.setPrice(555.55);
+
+		productService.updateProduct(product, 1L);
+
+		Product productTestUpdate = productService.findProductById(1L);
+
+		assertNotEquals(true, productTestUpdate.isInstock());
+		assertNotEquals(999.99, productTestUpdate.getPrice());
+
 	}
 
 	@Test
-	public void testDeleteProduct() {
-		//fail("Test not yet implemented");
-		Product product = productService.findProductById(901L);
-		
-		assertNotNull(product);
-		
-		productService.deleteProduct(901L);
-		
-		assertNull(product = productService.findProductById(901L));
-		//assertNotNull(productService.findProductById(902L));
+	public void testFindAllProducts() { //
+
+		List<Product> list = productService.findAllProducts();
+
+		assertTrue(list.contains(productService.findProductById(1L)));
+		assertTrue(list.contains(productService.findProductById(2L)));
+		assertTrue(list.contains(productService.findProductById(3L)));
+
 	}
+
+	@Test
+	public void testAddProduct() {
+
+		Category categoryTestAdd = new Category(null, "test", true, null);
+		categoryRepo.save(categoryTestAdd);
+
+		Product product1 = new Product(null, "Drums TTT", "Instrument with Sticks", 499.99, true, null, categoryTestAdd, null,
+				null);
+
+		assertNotNull(productService.addProduct(product1));
+
+		Product productTestAdd = productService.findProductById(4L);
+
+		assertEquals(499.99, productTestAdd.getPrice());
+		
+		List<Product> list = productService.findAllProducts();
+		
+		for(Product prod : list) {
+			System.out.println("Product name is " + prod.getName() + " price: " + prod.getPrice());
+		}
+		
+	}
+
 }

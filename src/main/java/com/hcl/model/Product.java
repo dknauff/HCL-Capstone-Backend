@@ -47,6 +47,8 @@ public class Product {
     
     @NotNull
     private boolean instock = true;
+    
+    private String imageUrl;
 
     // Category Relationship
     // Needs fetchtype.eager inorder to return category in the json
