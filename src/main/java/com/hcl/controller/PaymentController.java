@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.hcl.auth.GetAuth;
 import com.hcl.model.Payment;
 import com.hcl.model.User;
@@ -25,6 +28,8 @@ import com.hcl.service.UserService;
 @RestController
 @RequestMapping(path = "/payment")
 public class PaymentController {
+	
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
 	private PaymentService paymentService;
@@ -36,10 +41,13 @@ public class PaymentController {
 	@GetMapping("/payments")
 	public ResponseEntity<?> getAllPayment() {
 		User user = userService.findByUsername(authState.getAuth().getName());
-		if (user == null)
+		if (user == null) {
+			logger.warn("There is no user");
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
 		List<Payment> payments = paymentService.findAllPaymentsByUser(user);
-		return payments.isEmpty() ? new ResponseEntity<String>("No payments found.", HttpStatus.NOT_FOUND)
+		logger.info("All payment methods have been retrieved.");
+		return payments.isEmpty() ? new ResponseEntity<String>("No payment methods found.", HttpStatus.NOT_FOUND)
 				: new ResponseEntity<List<Payment>>(payments, HttpStatus.OK);
 	}
 
@@ -47,10 +55,13 @@ public class PaymentController {
 	public ResponseEntity<?> createPayment(@RequestBody Payment payment) {
 
 		User user = userService.findByUsername(authState.getAuth().getName());
-		if (user == null)
+		if (user == null) {
+			logger.warn("There is no user");
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
 
 		boolean didCreate = paymentService.createPayment(user, payment);
+		logger.info("A new payment method has been created.");
 		return didCreate ? new ResponseEntity<>(HttpStatus.CREATED) : new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 
 	}
@@ -59,10 +70,13 @@ public class PaymentController {
 	@GetMapping("/payments/{id}")
 	public ResponseEntity<?> onePayment(@PathVariable("id") Long paymentMethodId) {
 		User user = userService.findByUsername(authState.getAuth().getName());
-		if (user == null)
+		if (user == null) {
+			logger.warn("There is no user");
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
 		Payment paymentMethod = paymentService.findPaymentById(user, paymentMethodId);
-		return paymentMethod == null ? new ResponseEntity<String>("No payment found by ID", HttpStatus.NOT_FOUND)
+		logger.info("A payment method with id: {} has been found", paymentMethodId);
+		return paymentMethod == null ? new ResponseEntity<String>("No payment method found by ID", HttpStatus.NOT_FOUND)
 				: new ResponseEntity<Payment>(paymentMethod, HttpStatus.OK);
 
 	}
@@ -70,9 +84,12 @@ public class PaymentController {
 	@PutMapping("/payments/{id}")
 	public ResponseEntity<?> updatePayment(@RequestBody Payment newPayment, @PathVariable("id") Long paymentMethodId) {
 		User user = userService.findByUsername(authState.getAuth().getName());
-		if (user == null)
+		if (user == null) {
+			logger.warn("There is no user");
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
 		boolean didUpdate = paymentService.updatePayment(user, paymentMethodId, newPayment);
+		logger.info("The payment method with id: {} has been updated succesfully.", paymentMethodId);
 		return didUpdate ? new ResponseEntity<String>("Did update successful!", HttpStatus.ACCEPTED)
 				: new ResponseEntity<String>("update unsuccessful!", HttpStatus.BAD_REQUEST);
 	}
@@ -81,9 +98,12 @@ public class PaymentController {
 	public ResponseEntity<?> deletePaymentById(@PathVariable("id") Long paymentMethodId) {
 
 		User user = userService.findByUsername(authState.getAuth().getName());
-		if (user == null)
+		if (user == null) {
+			logger.warn("There is no user");
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
 		boolean didDelete = paymentService.deletePaymentById(user, paymentMethodId);
+		logger.warn("The payment method with id: {} has been deleted", paymentMethodId);
 		return didDelete ? new ResponseEntity<String>("Delete successful!", HttpStatus.OK)
 				: new ResponseEntity<String>("Delete unsuccessful!", HttpStatus.BAD_REQUEST);
 	}
