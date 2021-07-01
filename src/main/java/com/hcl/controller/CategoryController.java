@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,6 +30,7 @@ public class CategoryController {
 	@Autowired
 	private CategoryService categoryService;
 
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@PostMapping()
 	public ResponseEntity<Category> addCategory(@RequestBody Category category) {
 		Category newCategory = categoryService.addCategory(category);
@@ -36,6 +38,7 @@ public class CategoryController {
 		return new ResponseEntity<>(newCategory, HttpStatus.CREATED);
 	}
 
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@PutMapping("/{id}")
 	public ResponseEntity<Category> updateCategoryById(@RequestBody Category category, @PathVariable Long id) {
 		Category updatedCategory = categoryService.updateCategory(category, id);
@@ -44,6 +47,7 @@ public class CategoryController {
 
 	}
 
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Category> deleteCategoryById(@PathVariable("id") Long id) {
 		categoryService.deleteCategory(id);
@@ -73,7 +77,8 @@ public class CategoryController {
     logger.info("The category is in-stock");
 		return new ResponseEntity<>(categoryService.findAllInstock(true), HttpStatus.OK);
 	}
-	
+
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@PutMapping("/instock/{id}")
 	public ResponseEntity<String> updateInstock(@RequestBody boolean instock, @PathVariable Long id){
 		boolean updated = categoryService.updateInstock(instock, id);

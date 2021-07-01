@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +24,7 @@ import com.hcl.service.ProductService;
 
 @RestController
 @RequestMapping("/product")
+@PreAuthorize("hasRole('ROLE_USER')")
 public class ProductController {
 	
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -30,6 +32,7 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@PostMapping()
 	public ResponseEntity<?> addProduct(@RequestBody Product product) {
 		Product newProduct = productService.addProduct(product);
@@ -45,6 +48,7 @@ public class ProductController {
 		return new ResponseEntity<>(product, HttpStatus.OK);
 	}
 
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@PutMapping("/{id}")
 	public ResponseEntity<Product> updateProduct(@RequestBody Product product, @PathVariable Long id) {
 		Product updatedProduct = productService.updateProduct(product, id);
@@ -52,6 +56,7 @@ public class ProductController {
 		return new ResponseEntity<>(updatedProduct, HttpStatus.OK);
 	}
 
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Product> deleteProduct(@PathVariable("id") Long id) {
 		productService.deleteProduct(id);
@@ -78,6 +83,7 @@ public class ProductController {
 		return new ResponseEntity<>(productService.findAllByCategoryInstock(true, id), HttpStatus.OK);
 	}
 
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@PutMapping("/instock/{id}")
 	public ResponseEntity<String> updateStock(@RequestBody boolean instock, @PathVariable Long id) {
 		boolean updated = productService.setStock(id, instock);
@@ -85,7 +91,7 @@ public class ProductController {
 		return updated ? new ResponseEntity<String>("Updated successfully", HttpStatus.OK)
 				: new ResponseEntity<String>("Unsuccessful update", HttpStatus.BAD_REQUEST);
 	}
-  
+
 	@GetMapping("/products/{query}")
 	public ResponseEntity<List<Product>> searchByProductName(@PathVariable String query){
     logger.info("Return all products that have the query:{}", query);
