@@ -2,14 +2,12 @@ package com.hcl.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+@CrossOrigin(value = "http://localhost:3000/", allowedHeaders = "*", allowCredentials = "true")
 @RestController
 @RequestMapping(path = "/testing")
 public class TestController {

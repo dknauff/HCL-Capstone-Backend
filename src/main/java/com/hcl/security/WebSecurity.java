@@ -52,7 +52,8 @@ public class WebSecurity extends WebSecurityConfigurerAdapter{
 				.authorizeRequests().antMatchers("/users/**").permitAll().
 				// all other requests need to be authenticated
 //				anyRequest().authenticated().
-				antMatchers("/testing/**").hasAnyRole("USER", "ADMIN").
+				antMatchers("/testing/**").hasAnyRole("USER").
+				antMatchers("/testing/authTest").hasRole("ADMIN").
 				and().
 				// make sure we use stateless session; session won't be used to
 				// store user's state.

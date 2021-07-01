@@ -5,15 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,9 +19,10 @@ import com.hcl.model.User;
 import com.hcl.service.CartService;
 import com.hcl.service.UserService;
 
-//@CrossOrigin("http://localhost:4200/")
+@CrossOrigin(value = "http://localhost:3000/", allowedHeaders = "*", allowCredentials = "true")
 @RestController
 @RequestMapping(path = "/cart")
+@PreAuthorize("hasRole('ROLE_USER')")
 public class CartController {
 	
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
