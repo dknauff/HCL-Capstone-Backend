@@ -29,11 +29,27 @@ public class CategoryController {
 	@Autowired
 	private CategoryService categoryService;
 
-	@PostMapping("/add")
+	@PostMapping()
 	public ResponseEntity<Category> addCategory(@RequestBody Category category) {
 		Category newCategory = categoryService.addCategory(category);
 		logger.info("A new category has been created.");
 		return new ResponseEntity<>(newCategory, HttpStatus.CREATED);
+	}
+
+	@PutMapping("/{id}")
+	public ResponseEntity<Category> updateCategoryById(@RequestBody Category category, @PathVariable Long id) {
+		Category updatedCategory = categoryService.updateCategory(category, id);
+    logger.info("A category with id: {} has been updated.", id);
+		return new ResponseEntity<>(updatedCategory, HttpStatus.OK);
+
+	}
+
+	@DeleteMapping("/{id}")
+	public ResponseEntity<Category> deleteCategoryById(@PathVariable("id") Long id) {
+		categoryService.deleteCategory(id);
+    logger.warn("A category with id: {} has been deleted.", id);
+		return new ResponseEntity<>(HttpStatus.OK);
+
 	}
 
 	@GetMapping("/categories")
@@ -51,20 +67,18 @@ public class CategoryController {
 		return new ResponseEntity<>(category, HttpStatus.OK);
 
 	}
-
-	@PutMapping("/update/{id}")
-	public ResponseEntity<Category> updateCategoryById(@RequestBody Category category, @PathVariable Long id) {
-		Category updatedCategory = categoryService.updateCategory(category, id);
-		logger.info("A category with id: {} has been updated.", id);
-		return new ResponseEntity<>(updatedCategory, HttpStatus.OK);
-
+	
+	@GetMapping("/instock")
+	public ResponseEntity<List<Category>> getAllCategoriesInstock(){
+    logger.info("The category is in-stock");
+		return new ResponseEntity<>(categoryService.findAllInstock(true), HttpStatus.OK);
 	}
-
-	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<Category> deleteCategoryById(@PathVariable("id") Long id) {
-		categoryService.deleteCategory(id);
-		logger.warn("A category with id: {} has been deleted.", id);
-		return new ResponseEntity<>(HttpStatus.OK);
-
+	
+	@PutMapping("/instock/{id}")
+	public ResponseEntity<String> updateInstock(@RequestBody boolean instock, @PathVariable Long id){
+		boolean updated = categoryService.updateInstock(instock, id);
+    logger.info("The category that is in-instock with id:{} has been updated.", id);
+		return updated ? new ResponseEntity<>("Updated successfully", HttpStatus.OK)
+				: new ResponseEntity<>("Unsuccessful update", HttpStatus.OK);
 	}
 }

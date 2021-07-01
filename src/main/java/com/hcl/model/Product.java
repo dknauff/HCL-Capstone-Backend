@@ -44,6 +44,11 @@ public class Product {
     @NotNull
     @Column(scale = 2)
     private double price;
+    
+    @NotNull
+    private boolean instock = true;
+    
+    private String imageUrl;
 
     // Category Relationship
     // Needs fetchtype.eager inorder to return category in the json
@@ -51,7 +56,7 @@ public class Product {
 	@JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
-	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "product", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonIgnore
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude

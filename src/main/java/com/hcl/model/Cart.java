@@ -16,6 +16,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -28,10 +30,6 @@ public class Cart {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long cartId;
-
-	@NotNull
-	@Column(scale = 2)
-	private double totalCost;
 	
 	@NotNull
 	@Min(value = 0, message = "Cannot have a cart with less than zero items")
@@ -40,6 +38,7 @@ public class Cart {
 //	@OneToOne(mappedBy = "cart", cascade = CascadeType.PERSIST)
 	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
 	@JoinColumn(name="id")
+	@JsonIgnore
 	private User user;
 	
 	//Maybe requires fetchtype.eager to function correctly

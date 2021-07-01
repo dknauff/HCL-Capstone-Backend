@@ -56,7 +56,7 @@ public class CartServiceImpl implements CartService {
 			return null;
 		Cart cart = cartRepo.findByUser(user);
 		if(cart == null) return null;
-		return cartRepo.findById(cart.getCartId()).orElse(null);
+		return cart;
 	}
 
 	@Override
@@ -91,7 +91,6 @@ public class CartServiceImpl implements CartService {
 				cart.setNumCartItems(itemQty + cart.getNumCartItems());
 			}
 		}
-		cart.setTotalCost(cart.getTotalCost() + (itemQty * itemUpdate.getProduct().getPrice()));
 		cartItemRepo.save(itemUpdate);
 		cartRepo.save(cart);
 		return true;
@@ -130,7 +129,6 @@ public class CartServiceImpl implements CartService {
 			return false;
 		if (itemQty >= itemUpdate.getItemQty()) {
 			cart.setNumCartItems(cart.getNumCartItems() - itemUpdate.getItemQty());
-			cart.setTotalCost(cart.getTotalCost() - (itemUpdate.getItemQty()*itemUpdate.getProduct().getPrice()));
 //			cart.setCartItems(cart.getCartItems().stream().filter(x -> x.getCartItemId() != itemUpdate.getCartItemId()).collect(Collectors.toSet()));
 //			cart.getCartItems().forEach(x -> System.out.println(x.getCartItemId()));
 			cartRepo.save(cart);
@@ -141,7 +139,6 @@ public class CartServiceImpl implements CartService {
 		}
 		itemUpdate.setItemQty(itemUpdate.getItemQty() - itemQty);
 		cart.setNumCartItems(cart.getNumCartItems() - itemQty);
-		cart.setTotalCost(cart.getTotalCost() - (itemQty*itemUpdate.getProduct().getPrice()));
 		cartItemRepo.save(itemUpdate);
 		cartRepo.save(cart);
 		return true;
