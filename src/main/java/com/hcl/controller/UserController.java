@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.hcl.model.JwtRequest;
 import com.hcl.model.JwtResponse;
 import com.hcl.model.RefreshToken;
@@ -27,6 +30,8 @@ import com.hcl.validator.UserValidator;
 @RestController
 @RequestMapping(path = "/users")
 public class UserController {
+	
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
 	private AuthenticationManager authenticationManager;
@@ -50,11 +55,14 @@ public class UserController {
 			authenticationManager.authenticate(
 					new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword()));
 		} catch (DisabledException e) {
+			logger.error("The user is disabled.");
 			throw new Exception("USER_DISABLED", e);
 		} catch (BadCredentialsException e) {
+			logger.error("The credentials you entered are not valid.");
 			throw new Exception("INVALID_CREDENTIALS", e);
 		}
 		final UserDetails user = userDetailsService.loadUserByUsername(authRequest.getUsername());
+		logger.info("JWT token has been generated.");
 		// Returns access token
 		// TO - DO
 		// GENERATE REFRESH TOKEN - SEND BOTH
@@ -65,9 +73,11 @@ public class UserController {
 	public ResponseEntity<?> createUser(@RequestBody User user, BindingResult errors) {
 		userValidator.validate(user, errors);
 		if(errors.hasErrors()) {
+			logger.error("There was an error in creating a user.");
 			return new ResponseEntity<>(errors.getAllErrors() ,HttpStatus.BAD_REQUEST);
 		}
 		userService.createUser(user);
+		logger.info("A user has been created successfully");
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 

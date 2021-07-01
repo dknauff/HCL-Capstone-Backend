@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.hcl.auth.GetAuth;
 import com.hcl.model.Cart;
 import com.hcl.model.CartItem;
@@ -26,6 +29,9 @@ import com.hcl.service.UserService;
 @RestController
 @RequestMapping(path = "/cart")
 public class CartController {
+	
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+	
 	@Autowired
 	private CartService cartService;
 	@Autowired
@@ -36,43 +42,58 @@ public class CartController {
 	@PostMapping(path = "/create")
 	public ResponseEntity<?> createUser(@RequestBody Cart cart, BindingResult errors) {
 		User user = userService.findByUsername(authState.getAuth().getName());
-		if (user == null)
+		if (user == null) {
+			logger.warn("There is no user");
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
 		boolean didCreate = cartService.createCart(user);
+		logger.info("New cart has been created for the user");
 		return didCreate ? new ResponseEntity<>(HttpStatus.CREATED) : new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-
 	}
 
 	@GetMapping(path = "/items")
 	public ResponseEntity<?> getCartItems(){
 		User user = userService.findByUsername(authState.getAuth().getName());
-		if (user == null)
+		if (user == null) {
+			logger.warn("There is no user");
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
 		Cart cart = cartService.findCartByUser(user);
+		logger.info("Cart items have been retrieved");
 		return cart != null ? new ResponseEntity<List<CartItem>>(cartService.itemsInCart(user), HttpStatus.OK) : new ResponseEntity<String>("No cart found for user", HttpStatus.BAD_REQUEST);
 	}
+	
 	@DeleteMapping(path = "/delete")
 	public ResponseEntity<?> deleteCart() {
 		User user = userService.findByUsername(authState.getAuth().getName());
-		if (user == null)
+		if (user == null) {
+			logger.warn("There is no user");
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
 		boolean didDelete = cartService.deleteCart(user);
+		logger.warn("A cart has been deleted");
 		return didDelete ? new ResponseEntity<>(HttpStatus.NO_CONTENT) : new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
 
 	@PutMapping(path = "/add/{id}")
 	public ResponseEntity<?> addItems(@PathVariable Long id, @RequestBody int qty) {
 		User user = userService.findByUsername(authState.getAuth().getName());
-		if (user == null)
+		if (user == null) {
+			logger.warn("There is no user");
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		logger.info("An item with id: {} has been added to cart", id);
 		return cartService.updateCart(user, id, qty) ? new ResponseEntity<>(HttpStatus.OK) : new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
 	
 	@DeleteMapping(path = "/delete/{id}")
 	public ResponseEntity<?> deleteItems(@PathVariable Long id, @RequestBody int qty){
 		User user = userService.findByUsername(authState.getAuth().getName());
-		if (user == null)
+		if (user == null) {
+			logger.warn("There is no user");
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		logger.warn("An item with id: {} has been deleted from cart", id);
 		return cartService.deleteCartItems(user, id, qty) ? new ResponseEntity<>(HttpStatus.OK) : new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
 }

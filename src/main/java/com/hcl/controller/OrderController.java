@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.hcl.auth.GetAuth;
 import com.hcl.model.Cart;
 import com.hcl.model.Order;
@@ -25,6 +28,8 @@ import com.hcl.service.UserService;
 @RestController
 @RequestMapping(path = "/order")
 public class OrderController {
+	
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
 	private OrderService orderService;
@@ -42,11 +47,13 @@ public class OrderController {
 	public ResponseEntity<?> getAllOrders() {
 		
 		User user = userService.findByUsername(authState.getAuth().getName());
-		if (user == null)
+		if (user == null) {
+			logger.warn("There is no user");
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
 	
 		List<Order> orders = orderService.findAllOrdersByUser(user);
-		
+		logger.info("All orders have been retrieved.");
 		return orders.isEmpty() ? new ResponseEntity<String>("No orders found for user.", HttpStatus.NOT_FOUND)
 				: new ResponseEntity<List<Order>>(orders, HttpStatus.OK);
 		
@@ -56,8 +63,10 @@ public class OrderController {
 	public ResponseEntity<?> createOrder(@RequestBody Order order, BindingResult errors) {
 		
 		User user = userService.findByUsername(authState.getAuth().getName());
-		if (user == null)
+		if (user == null) {
+			logger.warn("There is no user");
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
 		
 //		Cart cart = cartService.findCartByUser(user);
 //		
@@ -70,7 +79,7 @@ public class OrderController {
 //			return new ResponseEntity<String>("Error putting in order", HttpStatus.BAD_REQUEST);
 //		boolean didCreate = orderService.createOrder(generateOrder, user);
 		boolean didCreate = orderService.createOrder(order, user);
-		
+		logger.info("A new order has been created.");
 		return didCreate ? new ResponseEntity<>(HttpStatus.CREATED) : new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		
 	}
@@ -79,10 +88,13 @@ public class OrderController {
 	@GetMapping("/orders/{id}")
 	public ResponseEntity<?> oneOrder(@PathVariable("id") Long orderId) {
 		User user = userService.findByUsername(authState.getAuth().getName());
-		if (user == null)
+		if (user == null) {
+			logger.warn("There is no user");
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
 		
 		Order order = orderService.findOrderById(user, orderId);
+		logger.info("An order with id: {} has been retrieved.", orderId);
 		return order == null ? new ResponseEntity<String>("No order found by ID", HttpStatus.NOT_FOUND)
 				: new ResponseEntity<Order>(order, HttpStatus.OK);
 
@@ -91,12 +103,16 @@ public class OrderController {
 	@PutMapping("/orders/{id}")
 	public ResponseEntity<?> updateOrderStatus(@RequestBody Order order, @PathVariable("id") Long orderId) {
 		User user = userService.findByUsername(authState.getAuth().getName());
-		if (user == null)
+		if (user == null) {
+			logger.warn("There is no user");
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-		if(order.getOrderStatus().isEmpty())
+		}
+		if(order.getOrderStatus().isEmpty()) {
+			logger.error("Cart is empty");
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-		
+		}
 		boolean didUpdate = orderService.updateOrder(order.getOrderStatus(), orderId);
+		logger.info("An order with id: {} has been updated successfully.", orderId);
 		return didUpdate ? new ResponseEntity<String>("Did update successful!", HttpStatus.ACCEPTED)
 				: new ResponseEntity<String>("update unsuccessful!", HttpStatus.BAD_REQUEST);
 	}
