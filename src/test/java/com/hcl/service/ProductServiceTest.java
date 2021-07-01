@@ -111,6 +111,12 @@ public class ProductServiceTest {
 	@Test
 	public void testAddProduct() {
 
+		List<Product> list = productService.findAllProducts();
+		
+		for(Product prod : list) {
+			System.out.println("Product name is " + prod.getName() + " price: " + prod.getPrice());
+		}
+		
 		Category categoryTestAdd = new Category(null, "test", true, null);
 		categoryRepo.save(categoryTestAdd);
 
@@ -123,10 +129,10 @@ public class ProductServiceTest {
 
 		assertEquals(499.99, productTestAdd.getPrice());
 		
-		List<Product> list = productService.findAllProducts();
+		list = productService.findAllProducts();
 		
 		for(Product prod : list) {
-			System.out.println("Product name is " + prod.getName() + " price: " + prod.getPrice());
+			System.out.println("\n\n\nProduct name is " + prod.getName() + " price: " + prod.getPrice());
 		}
 		
 	}
