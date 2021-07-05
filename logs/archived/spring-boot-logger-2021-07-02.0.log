@@ -1,0 +1,384 @@
+50844749 [http-nio-8080-exec-6] INFO  c.hcl.controller.CategoryController - The category is in-stock
+50844859 [http-nio-8080-exec-8] INFO  c.hcl.controller.CategoryController - The category is in-stock
+50852245 [http-nio-8080-exec-9] INFO  com.hcl.controller.UserController - JWT token has been generated.
+50855592 [http-nio-8080-exec-1] INFO  c.hcl.controller.CategoryController - The category is in-stock
+50855608 [http-nio-8080-exec-2] INFO  c.hcl.controller.CategoryController - The category is in-stock
+50858007 [http-nio-8080-exec-4] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:0 has been updated.
+50861643 [http-nio-8080-exec-5] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:0 has been updated.
+50879099 [http-nio-8080-exec-7] INFO  c.hcl.controller.CategoryController - The category is in-stock
+50881161 [http-nio-8080-exec-6] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:0 has been updated.
+51010465 [http-nio-8080-exec-1] INFO  c.hcl.controller.CategoryController - The category is in-stock
+51012726 [http-nio-8080-exec-2] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:0 has been updated.
+51014456 [http-nio-8080-exec-3] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:0 has been updated.
+51025566 [http-nio-8080-exec-4] INFO  c.hcl.controller.CategoryController - The category is in-stock
+51026814 [http-nio-8080-exec-5] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:0 has been updated.
+51101891 [http-nio-8080-exec-6] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:2 has been updated.
+51107879 [http-nio-8080-exec-8] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:1 has been updated.
+51267627 [http-nio-8080-exec-9] INFO  c.hcl.controller.CategoryController - The category is in-stock
+51272717 [http-nio-8080-exec-1] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:2 has been updated.
+51289075 [http-nio-8080-exec-2] INFO  c.hcl.controller.CategoryController - The category is in-stock
+51291161 [http-nio-8080-exec-3] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:2 has been updated.
+51339899 [http-nio-8080-exec-4] INFO  c.hcl.controller.CategoryController - The category is in-stock
+51342673 [http-nio-8080-exec-5] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:2 has been updated.
+51355589 [http-nio-8080-exec-7] INFO  c.hcl.controller.CategoryController - The category is in-stock
+51357500 [http-nio-8080-exec-6] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:2 has been updated.
+51454962 [http-nio-8080-exec-10] INFO  c.hcl.controller.CategoryController - The category is in-stock
+51456555 [http-nio-8080-exec-9] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:2 has been updated.
+51466502 [http-nio-8080-exec-1] INFO  c.hcl.controller.CategoryController - The category is in-stock
+51482239 [http-nio-8080-exec-2] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:2 has been updated.
+51497746 [http-nio-8080-exec-3] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:2 has been updated.
+51509997 [http-nio-8080-exec-4] INFO  c.hcl.controller.CategoryController - The category is in-stock
+51510028 [http-nio-8080-exec-5] INFO  c.hcl.controller.CategoryController - The category is in-stock
+51513236 [http-nio-8080-exec-7] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:0 has been updated.
+51515919 [http-nio-8080-exec-6] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:0 has been updated.
+51589523 [http-nio-8080-exec-9] INFO  c.hcl.controller.CategoryController - The category is in-stock
+51594393 [http-nio-8080-exec-1] INFO  c.hcl.controller.CategoryController - A new category has been created.
+51818790 [http-nio-8080-exec-3] INFO  c.hcl.controller.CategoryController - The category is in-stock
+51820025 [http-nio-8080-exec-4] INFO  c.hcl.controller.CategoryController - The category is in-stock
+51825791 [http-nio-8080-exec-5] INFO  c.hcl.controller.CategoryController - A new category has been created.
+51828155 [http-nio-8080-exec-7] INFO  c.hcl.controller.CategoryController - The category is in-stock
+51836265 [http-nio-8080-exec-6] INFO  c.hcl.controller.CategoryController - A new category has been created.
+51839039 [http-nio-8080-exec-8] INFO  c.hcl.controller.CategoryController - The category is in-stock
+51841851 [http-nio-8080-exec-9] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:4 has been updated.
+51927312 [http-nio-8080-exec-2] INFO  c.hcl.controller.CategoryController - A new category has been created.
+51960479 [http-nio-8080-exec-3] INFO  c.hcl.controller.CategoryController - A new category has been created.
+51975281 [http-nio-8080-exec-4] INFO  c.hcl.controller.CategoryController - A new category has been created.
+52016872 [http-nio-8080-exec-5] INFO  c.hcl.controller.CategoryController - A new category has been created.
+52029591 [http-nio-8080-exec-7] INFO  c.hcl.controller.CategoryController - A new category has been created.
+52101147 [http-nio-8080-exec-8] INFO  c.hcl.controller.CategoryController - A new category has been created.
+52110998 [http-nio-8080-exec-10] INFO  c.hcl.controller.CategoryController - A new category has been created.
+52125635 [http-nio-8080-exec-9] INFO  c.hcl.controller.CategoryController - A new category has been created.
+52160251 [http-nio-8080-exec-1] INFO  c.hcl.controller.CategoryController - A new category has been created.
+52244091 [http-nio-8080-exec-3] INFO  c.hcl.controller.CategoryController - A new category has been created.
+52245920 [http-nio-8080-exec-4] INFO  c.hcl.controller.CategoryController - A new category has been created.
+52255592 [http-nio-8080-exec-5] INFO  c.hcl.controller.CategoryController - A new category has been created.
+52317161 [http-nio-8080-exec-6] INFO  c.hcl.controller.CategoryController - The category is in-stock
+52398540 [http-nio-8080-exec-10] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:10 has been updated.
+52413473 [http-nio-8080-exec-9] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:8 has been updated.
+52425306 [http-nio-8080-exec-1] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:8 has been updated.
+52446945 [http-nio-8080-exec-2] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:8 has been updated.
+52523348 [http-nio-8080-exec-4] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:6 has been updated.
+52577492 [http-nio-8080-exec-5] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:6 has been updated.
+52579545 [http-nio-8080-exec-7] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:6 has been updated.
+52580466 [http-nio-8080-exec-6] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:6 has been updated.
+52580857 [http-nio-8080-exec-8] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:6 has been updated.
+52581201 [http-nio-8080-exec-10] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:6 has been updated.
+52581476 [http-nio-8080-exec-9] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:6 has been updated.
+52581821 [http-nio-8080-exec-1] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:6 has been updated.
+52582194 [http-nio-8080-exec-2] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:6 has been updated.
+52582525 [http-nio-8080-exec-3] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:6 has been updated.
+52582869 [http-nio-8080-exec-4] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:6 has been updated.
+52583196 [http-nio-8080-exec-5] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:6 has been updated.
+52583521 [http-nio-8080-exec-7] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:6 has been updated.
+52583856 [http-nio-8080-exec-6] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:6 has been updated.
+52584156 [http-nio-8080-exec-8] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:6 has been updated.
+52622912 [http-nio-8080-exec-10] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:6 has been updated.
+52623713 [http-nio-8080-exec-9] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:6 has been updated.
+52640134 [http-nio-8080-exec-1] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:6 has been updated.
+52640161 [http-nio-8080-exec-2] INFO  c.hcl.controller.CategoryController - The category is in-stock
+52643230 [http-nio-8080-exec-4] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:3 has been updated.
+52643247 [http-nio-8080-exec-5] INFO  c.hcl.controller.CategoryController - The category is in-stock
+52645550 [http-nio-8080-exec-7] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:3 has been updated.
+52645580 [http-nio-8080-exec-8] INFO  c.hcl.controller.CategoryController - The category is in-stock
+52702466 [http-nio-8080-exec-10] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:1 has been updated.
+52702486 [http-nio-8080-exec-9] INFO  c.hcl.controller.CategoryController - The category is in-stock
+52705397 [http-nio-8080-exec-1] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:1 has been updated.
+52705429 [http-nio-8080-exec-2] INFO  c.hcl.controller.CategoryController - The category is in-stock
+52707788 [http-nio-8080-exec-3] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:7 has been updated.
+52707799 [http-nio-8080-exec-4] INFO  c.hcl.controller.CategoryController - The category is in-stock
+52710717 [http-nio-8080-exec-7] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:5 has been updated.
+52710736 [http-nio-8080-exec-6] INFO  c.hcl.controller.CategoryController - The category is in-stock
+52712961 [http-nio-8080-exec-8] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:5 has been updated.
+52712977 [http-nio-8080-exec-10] INFO  c.hcl.controller.CategoryController - The category is in-stock
+52725279 [http-nio-8080-exec-9] INFO  c.hcl.controller.CategoryController - A new category has been created.
+52754086 [http-nio-8080-exec-2] INFO  c.hcl.controller.ProductController - A product has been added.
+52765139 [http-nio-8080-exec-3] INFO  c.hcl.controller.CategoryController - The category is in-stock
+52766258 [http-nio-8080-exec-4] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:5 has been updated.
+52766274 [http-nio-8080-exec-5] INFO  c.hcl.controller.CategoryController - The category is in-stock
+52770300 [http-nio-8080-exec-7] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:1 has been updated.
+52770309 [http-nio-8080-exec-6] INFO  c.hcl.controller.CategoryController - The category is in-stock
+54077330 [http-nio-8080-exec-10] INFO  c.hcl.controller.ProductController - A product has been added.
+54093439 [http-nio-8080-exec-9] INFO  c.hcl.controller.CategoryController - The category is in-stock
+54104324 [http-nio-8080-exec-1] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:1 has been updated.
+54104338 [http-nio-8080-exec-2] INFO  c.hcl.controller.CategoryController - The category is in-stock
+54105011 [http-nio-8080-exec-3] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:1 has been updated.
+54105022 [http-nio-8080-exec-4] INFO  c.hcl.controller.CategoryController - The category is in-stock
+54105166 [http-nio-8080-exec-5] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:1 has been updated.
+54105179 [http-nio-8080-exec-7] INFO  c.hcl.controller.CategoryController - The category is in-stock
+54111527 [http-nio-8080-exec-8] INFO  c.hcl.controller.CategoryController - A new category has been created.
+54113094 [http-nio-8080-exec-10] INFO  c.hcl.controller.CategoryController - The category is in-stock
+54125331 [http-nio-8080-exec-9] INFO  c.hcl.controller.CategoryController - The category that is in-instock with id:1 has been updated.
+54125358 [http-nio-8080-exec-1] INFO  c.hcl.controller.CategoryController - The category is in-stock
+54157088 [http-nio-8080-exec-2] INFO  c.hcl.controller.CategoryController - The category is in-stock
+54245313 [http-nio-8080-exec-4] INFO  c.hcl.controller.CategoryController - The category is in-stock
+61237337 [http-nio-8080-exec-8] INFO  com.hcl.controller.UserController - A user has been created successfully
+61252237 [http-nio-8080-exec-9] INFO  com.hcl.controller.UserController - JWT token has been generated.
+61345205 [http-nio-8080-exec-4] INFO  c.hcl.controller.CategoryController - The category is in-stock
+61351370 [http-nio-8080-exec-5] INFO  c.hcl.controller.CategoryController - A new category has been created.
+61375502 [http-nio-8080-exec-6] INFO  c.hcl.controller.ProductController - A product has been added.
+61382730 [http-nio-8080-exec-8] INFO  c.hcl.controller.ProductController - A product has been added.
+61393489 [http-nio-8080-exec-10] INFO  c.hcl.controller.CategoryController - A new category has been created.
+61474170 [http-nio-8080-exec-1] INFO  c.hcl.controller.CategoryController - The category is in-stock
+61483136 [http-nio-8080-exec-2] INFO  c.hcl.controller.ProductController - A product has been added.
+67658537 [http-nio-8080-exec-7] INFO  com.hcl.controller.UserController - A user has been created successfully
+67660617 [http-nio-8080-exec-10] INFO  com.hcl.controller.UserController - JWT token has been generated.
+67689576 [http-nio-8080-exec-4] INFO  com.hcl.controller.UserController - JWT token has been generated.
+486981 [http-nio-8080-exec-7] ERROR com.hcl.controller.UserController - The credentials you entered are not valid.
+913836 [http-nio-8080-exec-7] INFO  com.hcl.controller.UserController - A user has been created successfully
+917330 [http-nio-8080-exec-8] INFO  com.hcl.controller.UserController - JWT token has been generated.
+21343 [http-nio-8080-exec-5] INFO  com.hcl.controller.UserController - A user has been created successfully
+26928 [http-nio-8080-exec-6] INFO  com.hcl.controller.UserController - JWT token has been generated.
+58581 [http-nio-8080-exec-8] INFO  com.hcl.controller.UserController - JWT token has been generated.
+357449 [http-nio-8080-exec-2] INFO  com.hcl.controller.UserController - JWT token has been generated.
+397804 [http-nio-8080-exec-10] INFO  com.hcl.controller.UserController - A user has been created successfully
+404267 [http-nio-8080-exec-2] INFO  com.hcl.controller.UserController - JWT token has been generated.
+154619 [http-nio-8080-exec-3] INFO  com.hcl.controller.UserController - A user has been created successfully
+201043 [http-nio-8080-exec-6] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+205567 [http-nio-8080-exec-7] INFO  com.hcl.controller.UserController - A user has been created successfully
+245075 [http-nio-8080-exec-9] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+271685 [http-nio-8080-exec-2] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+295624 [http-nio-8080-exec-5] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+373513 [http-nio-8080-exec-7] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+420103 [http-nio-8080-exec-9] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+447136 [http-nio-8080-exec-1] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+451497 [http-nio-8080-exec-3] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+474196 [http-nio-8080-exec-6] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+515320 [http-nio-8080-exec-9] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+543826 [http-nio-8080-exec-10] INFO  com.hcl.controller.UserController - JWT token has been generated.
+551140 [http-nio-8080-exec-1] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+16793 [http-nio-8080-exec-3] INFO  com.hcl.controller.UserController - A user has been created successfully
+23004 [http-nio-8080-exec-5] INFO  com.hcl.controller.UserController - JWT token has been generated.
+109247 [http-nio-8080-exec-3] INFO  com.hcl.controller.UserController - JWT token has been generated.
+171026 [http-nio-8080-exec-7] INFO  com.hcl.controller.UserController - A user has been created successfully
+175641 [http-nio-8080-exec-8] INFO  com.hcl.controller.UserController - JWT token has been generated.
+175777 [http-nio-8080-exec-9] INFO  com.hcl.controller.CartController - New cart has been created for the user
+308225 [http-nio-8080-exec-6] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+308225 [http-nio-8080-exec-7] INFO  c.hcl.controller.CategoryController - The category is in-stock
+330547 [http-nio-8080-exec-9] INFO  c.hcl.controller.CategoryController - The category is in-stock
+330552 [http-nio-8080-exec-8] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+394229 [http-nio-8080-exec-5] INFO  c.hcl.controller.CategoryController - The category is in-stock
+394229 [http-nio-8080-exec-7] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+395627 [http-nio-8080-exec-6] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+395627 [http-nio-8080-exec-10] INFO  c.hcl.controller.CategoryController - The category is in-stock
+397326 [http-nio-8080-exec-2] INFO  c.hcl.controller.CategoryController - The category is in-stock
+397326 [http-nio-8080-exec-8] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+399094 [http-nio-8080-exec-3] INFO  c.hcl.controller.CategoryController - The category is in-stock
+399094 [http-nio-8080-exec-1] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+401339 [http-nio-8080-exec-4] INFO  c.hcl.controller.CategoryController - The category is in-stock
+401339 [http-nio-8080-exec-5] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+403828 [http-nio-8080-exec-9] INFO  c.hcl.controller.CategoryController - The category is in-stock
+403828 [http-nio-8080-exec-7] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+405997 [http-nio-8080-exec-6] INFO  c.hcl.controller.CategoryController - The category is in-stock
+405998 [http-nio-8080-exec-10] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+407720 [http-nio-8080-exec-8] INFO  c.hcl.controller.CategoryController - The category is in-stock
+407721 [http-nio-8080-exec-2] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+438707 [http-nio-8080-exec-3] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+438708 [http-nio-8080-exec-1] INFO  c.hcl.controller.CategoryController - The category is in-stock
+440789 [http-nio-8080-exec-9] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+450670 [http-nio-8080-exec-6] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+459433 [http-nio-8080-exec-8] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+463375 [http-nio-8080-exec-2] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+464241 [http-nio-8080-exec-3] INFO  c.hcl.controller.CategoryController - The category is in-stock
+464243 [http-nio-8080-exec-1] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+465081 [http-nio-8080-exec-9] INFO  c.hcl.controller.ProductController - A product has been retrieved with id: 4
+495702 [http-nio-8080-exec-3] INFO  com.hcl.controller.UserController - A user has been created successfully
+499305 [http-nio-8080-exec-1] INFO  com.hcl.controller.UserController - JWT token has been generated.
+499350 [http-nio-8080-exec-5] INFO  com.hcl.controller.CartController - New cart has been created for the user
+502063 [http-nio-8080-exec-10] INFO  c.hcl.controller.CategoryController - The category is in-stock
+502064 [http-nio-8080-exec-7] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+504866 [http-nio-8080-exec-6] INFO  c.hcl.controller.ProductController - A product has been retrieved with id: 4
+507276 [http-nio-8080-exec-8] INFO  com.hcl.controller.CartController - An item with id: 4 has been added to cart
+652247 [http-nio-8080-exec-6] INFO  com.hcl.controller.UserController - JWT token has been generated.
+652346 [http-nio-8080-exec-8] INFO  com.hcl.controller.CartController - New cart has been created for the user
+653596 [http-nio-8080-exec-4] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+661702 [http-nio-8080-exec-3] INFO  c.hcl.controller.CategoryController - The category is in-stock
+661702 [http-nio-8080-exec-2] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+695799 [http-nio-8080-exec-5] INFO  c.hcl.controller.ProductController - A product has been retrieved with id: 5
+697875 [http-nio-8080-exec-10] INFO  com.hcl.controller.CartController - An item with id: 5 has been added to cart
+808437 [http-nio-8080-exec-1] INFO  com.hcl.controller.UserController - JWT token has been generated.
+808518 [http-nio-8080-exec-5] INFO  com.hcl.controller.CartController - New cart has been created for the user
+809411 [http-nio-8080-exec-9] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+812054 [http-nio-8080-exec-7] INFO  c.hcl.controller.CategoryController - The category is in-stock
+812054 [http-nio-8080-exec-10] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+813931 [http-nio-8080-exec-6] INFO  c.hcl.controller.ProductController - A product has been retrieved with id: 5
+818337 [http-nio-8080-exec-8] INFO  com.hcl.controller.CartController - An item with id: 5 has been added to cart
+853672 [http-nio-8080-exec-6] INFO  com.hcl.controller.UserController - JWT token has been generated.
+853713 [http-nio-8080-exec-8] INFO  com.hcl.controller.CartController - New cart has been created for the user
+856364 [http-nio-8080-exec-3] INFO  c.hcl.controller.CategoryController - The category is in-stock
+856364 [http-nio-8080-exec-4] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+857415 [http-nio-8080-exec-2] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+859711 [http-nio-8080-exec-5] INFO  c.hcl.controller.CategoryController - The category is in-stock
+859711 [http-nio-8080-exec-1] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+860655 [http-nio-8080-exec-9] INFO  c.hcl.controller.ProductController - A product has been retrieved with id: 5
+862495 [http-nio-8080-exec-7] INFO  com.hcl.controller.CartController - An item with id: 5 has been added to cart
+862664 [http-nio-8080-exec-10] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+867053 [http-nio-8080-exec-8] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+867051 [http-nio-8080-exec-3] INFO  c.hcl.controller.CategoryController - The category is in-stock
+938505 [http-nio-8080-exec-1] INFO  c.hcl.controller.ProductController - A product has been retrieved with id: 6
+941411 [http-nio-8080-exec-9] INFO  com.hcl.controller.CartController - An item with id: 6 has been added to cart
+941555 [http-nio-8080-exec-7] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+987636 [http-nio-8080-exec-8] INFO  c.hcl.controller.CategoryController - The category is in-stock
+987637 [http-nio-8080-exec-3] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+988423 [http-nio-8080-exec-4] INFO  c.hcl.controller.ProductController - A product has been retrieved with id: 5
+990791 [http-nio-8080-exec-5] INFO  com.hcl.controller.CartController - An item with id: 5 has been added to cart
+990958 [http-nio-8080-exec-2] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+1043656 [http-nio-8080-exec-6] INFO  c.hcl.controller.CategoryController - The category is in-stock
+1043656 [http-nio-8080-exec-9] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+1055567 [http-nio-8080-exec-10] INFO  c.hcl.controller.CategoryController - The category is in-stock
+1055567 [http-nio-8080-exec-7] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+1057440 [http-nio-8080-exec-8] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+1084493 [http-nio-8080-exec-4] INFO  com.hcl.controller.UserController - A user has been created successfully
+1100726 [http-nio-8080-exec-2] INFO  c.hcl.controller.CategoryController - The category is in-stock
+1100726 [http-nio-8080-exec-1] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+1101697 [http-nio-8080-exec-6] INFO  c.hcl.controller.ProductController - A product has been retrieved with id: 5
+1122551 [http-nio-8080-exec-10] INFO  c.hcl.controller.ProductController - A product has been retrieved with id: 5
+1132358 [http-nio-8080-exec-8] INFO  com.hcl.controller.CartController - An item with id: 5 has been added to cart
+1132463 [http-nio-8080-exec-3] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+1213295 [http-nio-8080-exec-6] INFO  c.hcl.controller.CategoryController - The category is in-stock
+1213295 [http-nio-8080-exec-1] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+1214657 [http-nio-8080-exec-9] INFO  c.hcl.controller.ProductController - A product has been retrieved with id: 5
+1242748 [http-nio-8080-exec-7] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+1244431 [http-nio-8080-exec-8] INFO  c.hcl.controller.CategoryController - The category is in-stock
+1244438 [http-nio-8080-exec-10] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+1245560 [http-nio-8080-exec-3] INFO  c.hcl.controller.CategoryController - The category is in-stock
+1245561 [http-nio-8080-exec-4] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+23676921 [http-nio-8080-exec-7] ERROR com.hcl.controller.UserController - The credentials you entered are not valid.
+23680421 [http-nio-8080-exec-10] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+23710291 [http-nio-8080-exec-5] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+23749100 [http-nio-8080-exec-9] INFO  com.hcl.controller.UserController - A user has been created successfully
+23790255 [http-nio-8080-exec-8] INFO  com.hcl.controller.UserController - A user has been created successfully
+23951390 [http-nio-8080-exec-4] INFO  com.hcl.controller.UserController - A user has been created successfully
+24015743 [http-nio-8080-exec-6] INFO  com.hcl.controller.UserController - A user has been created successfully
+24025433 [http-nio-8080-exec-1] INFO  com.hcl.controller.UserController - JWT token has been generated.
+24025548 [http-nio-8080-exec-7] INFO  com.hcl.controller.CartController - New cart has been created for the user
+24027546 [http-nio-8080-exec-10] INFO  c.hcl.controller.CategoryController - The category is in-stock
+24027547 [http-nio-8080-exec-8] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+24028509 [http-nio-8080-exec-4] INFO  c.hcl.controller.ProductController - A product has been retrieved with id: 5
+24029489 [http-nio-8080-exec-5] INFO  com.hcl.controller.CartController - An item with id: 5 has been added to cart
+24029647 [http-nio-8080-exec-6] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+24031901 [http-nio-8080-exec-7] INFO  c.hcl.controller.CategoryController - The category is in-stock
+24031904 [http-nio-8080-exec-9] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+24032795 [http-nio-8080-exec-10] INFO  c.hcl.controller.ProductController - A product has been retrieved with id: 4
+24034326 [http-nio-8080-exec-3] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+24037933 [http-nio-8080-exec-2] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+24038934 [http-nio-8080-exec-6] INFO  c.hcl.controller.CategoryController - The category is in-stock
+24038935 [http-nio-8080-exec-1] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+24040125 [http-nio-8080-exec-7] INFO  c.hcl.controller.ProductController - A product has been retrieved with id: 4
+24042080 [http-nio-8080-exec-9] INFO  com.hcl.controller.CartController - An item with id: 4 has been added to cart
+24042216 [http-nio-8080-exec-10] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+24049522 [http-nio-8080-exec-3] INFO  c.hcl.controller.CategoryController - The category is in-stock
+24049522 [http-nio-8080-exec-4] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+24050514 [http-nio-8080-exec-5] INFO  c.hcl.controller.ProductController - A product has been retrieved with id: 4
+24051536 [http-nio-8080-exec-2] INFO  com.hcl.controller.CartController - An item with id: 4 has been added to cart
+24051685 [http-nio-8080-exec-6] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+24053783 [http-nio-8080-exec-9] INFO  c.hcl.controller.CategoryController - The category is in-stock
+24053785 [http-nio-8080-exec-7] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+24054461 [http-nio-8080-exec-8] INFO  c.hcl.controller.ProductController - A product has been retrieved with id: 6
+24055472 [http-nio-8080-exec-3] INFO  com.hcl.controller.CartController - An item with id: 6 has been added to cart
+24055582 [http-nio-8080-exec-4] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+24126022 [http-nio-8080-exec-7] INFO  c.hcl.controller.CategoryController - The category is in-stock
+24126022 [http-nio-8080-exec-9] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+24127363 [http-nio-8080-exec-8] INFO  c.hcl.controller.ProductController - A product has been retrieved with id: 6
+24128392 [http-nio-8080-exec-10] INFO  com.hcl.controller.CartController - An item with id: 6 has been added to cart
+24128549 [http-nio-8080-exec-3] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+24130284 [http-nio-8080-exec-2] INFO  c.hcl.controller.CategoryController - The category is in-stock
+24130287 [http-nio-8080-exec-4] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+24131494 [http-nio-8080-exec-1] INFO  c.hcl.controller.ProductController - A product has been retrieved with id: 8
+24132450 [http-nio-8080-exec-7] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+24137072 [http-nio-8080-exec-8] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+24218556 [http-nio-8080-exec-4] INFO  c.hcl.controller.CategoryController - The category is in-stock
+24218556 [http-nio-8080-exec-2] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+24220126 [http-nio-8080-exec-1] INFO  c.hcl.controller.ProductController - A product has been retrieved with id: 7
+24221773 [http-nio-8080-exec-9] INFO  com.hcl.controller.CartController - An item with id: 7 has been added to cart
+24221952 [http-nio-8080-exec-7] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+24225067 [http-nio-8080-exec-5] INFO  c.hcl.controller.CategoryController - The category is in-stock
+24225069 [http-nio-8080-exec-8] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+24226661 [http-nio-8080-exec-3] INFO  c.hcl.controller.ProductController - A product has been retrieved with id: 8
+24227807 [http-nio-8080-exec-4] INFO  com.hcl.controller.CartController - An item with id: 8 has been added to cart
+24227972 [http-nio-8080-exec-2] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+24231913 [http-nio-8080-exec-9] INFO  c.hcl.controller.CategoryController - The category is in-stock
+24231913 [http-nio-8080-exec-6] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+24232735 [http-nio-8080-exec-10] INFO  c.hcl.controller.ProductController - A product has been retrieved with id: 4
+24234635 [http-nio-8080-exec-7] INFO  com.hcl.controller.CartController - An item with id: 4 has been added to cart
+24234774 [http-nio-8080-exec-5] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+24236879 [http-nio-8080-exec-3] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+24236880 [http-nio-8080-exec-4] INFO  c.hcl.controller.CategoryController - The category is in-stock
+29613889 [http-nio-8080-exec-9] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+29622948 [http-nio-8080-exec-6] WARN  com.hcl.controller.CartController - An item with id: 4 has been deleted from cart
+29625529 [http-nio-8080-exec-7] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+29634895 [http-nio-8080-exec-5] WARN  com.hcl.controller.CartController - An item with id: 4 has been deleted from cart
+29636883 [http-nio-8080-exec-4] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+29823753 [http-nio-8080-exec-9] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+29826635 [http-nio-8080-exec-8] WARN  com.hcl.controller.CartController - An item with id: 6 has been deleted from cart
+29842001 [http-nio-8080-exec-7] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+29845287 [http-nio-8080-exec-1] INFO  c.hcl.controller.CategoryController - The category is in-stock
+29845287 [http-nio-8080-exec-2] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+29846130 [http-nio-8080-exec-9] INFO  c.hcl.controller.ProductController - A product has been retrieved with id: 5
+29847153 [http-nio-8080-exec-5] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+29851075 [http-nio-8080-exec-7] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+29864760 [http-nio-8080-exec-1] INFO  c.hcl.controller.CategoryController - The category is in-stock
+29864761 [http-nio-8080-exec-3] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+29866926 [http-nio-8080-exec-2] INFO  c.hcl.controller.ProductController - A product has been retrieved with id: 5
+29867821 [http-nio-8080-exec-6] INFO  com.hcl.controller.CartController - An item with id: 5 has been added to cart
+29867998 [http-nio-8080-exec-9] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+29870307 [http-nio-8080-exec-5] WARN  com.hcl.controller.CartController - An item with id: 5 has been deleted from cart
+29875206 [http-nio-8080-exec-7] INFO  c.hcl.controller.CategoryController - The category is in-stock
+29875208 [http-nio-8080-exec-4] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+29878241 [http-nio-8080-exec-1] INFO  c.hcl.controller.ProductController - A product has been retrieved with id: 5
+29879570 [http-nio-8080-exec-3] INFO  com.hcl.controller.CartController - An item with id: 5 has been added to cart
+29879730 [http-nio-8080-exec-2] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+29881724 [http-nio-8080-exec-10] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+29881725 [http-nio-8080-exec-9] INFO  c.hcl.controller.CategoryController - The category is in-stock
+29882361 [http-nio-8080-exec-5] INFO  c.hcl.controller.ProductController - A product has been retrieved with id: 4
+29883285 [http-nio-8080-exec-7] INFO  com.hcl.controller.CartController - An item with id: 4 has been added to cart
+29883404 [http-nio-8080-exec-1] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+30019775 [http-nio-8080-exec-9] WARN  com.hcl.controller.CartController - An item with id: 4 has been deleted from cart
+30022737 [http-nio-8080-exec-10] WARN  com.hcl.controller.CartController - An item with id: 5 has been deleted from cart
+30024278 [http-nio-8080-exec-8] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+30032272 [http-nio-8080-exec-4] WARN  com.hcl.controller.CartController - An item with id: 4 has been deleted from cart
+30041451 [http-nio-8080-exec-7] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+30056872 [http-nio-8080-exec-1] WARN  com.hcl.controller.CartController - An item with id: 5 has been deleted from cart
+30130214 [http-nio-8080-exec-7] INFO  com.hcl.controller.UserController - A user has been created successfully
+30133338 [http-nio-8080-exec-5] INFO  com.hcl.controller.UserController - JWT token has been generated.
+30133433 [http-nio-8080-exec-1] INFO  com.hcl.controller.CartController - New cart has been created for the user
+30135699 [http-nio-8080-exec-6] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+30135700 [http-nio-8080-exec-4] INFO  c.hcl.controller.CategoryController - The category is in-stock
+30152283 [http-nio-8080-exec-8] INFO  c.hcl.controller.CategoryController - The category is in-stock
+30152283 [http-nio-8080-exec-9] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+30153605 [http-nio-8080-exec-7] INFO  c.hcl.controller.ProductController - A product has been retrieved with id: 4
+30154859 [http-nio-8080-exec-3] INFO  com.hcl.controller.CartController - An item with id: 4 has been added to cart
+30154878 [http-nio-8080-exec-5] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+30212610 [http-nio-8080-exec-4] INFO  c.hcl.controller.CategoryController - The category is in-stock
+30212612 [http-nio-8080-exec-6] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+30214037 [http-nio-8080-exec-8] INFO  c.hcl.controller.ProductController - A product has been retrieved with id: 5
+30215554 [http-nio-8080-exec-10] INFO  com.hcl.controller.CartController - An item with id: 5 has been added to cart
+30215701 [http-nio-8080-exec-9] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+30218980 [http-nio-8080-exec-5] INFO  c.hcl.controller.CategoryController - The category is in-stock
+30218989 [http-nio-8080-exec-2] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+30220142 [http-nio-8080-exec-3] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+30232271 [http-nio-8080-exec-1] WARN  com.hcl.controller.CartController - An item with id: 5 has been deleted from cart
+30234206 [http-nio-8080-exec-4] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+30264157 [http-nio-8080-exec-8] WARN  com.hcl.controller.CartController - An item with id: 5 has been deleted from cart
+30274396 [http-nio-8080-exec-10] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+30277325 [http-nio-8080-exec-9] WARN  com.hcl.controller.CartController - An item with id: 5 has been deleted from cart
+30333841 [http-nio-8080-exec-2] INFO  c.hcl.controller.CategoryController - The category is in-stock
+30346468 [http-nio-8080-exec-4] INFO  com.hcl.controller.UserController - A user has been created successfully
+30349514 [http-nio-8080-exec-5] INFO  com.hcl.controller.UserController - JWT token has been generated.
+30349618 [http-nio-8080-exec-6] INFO  com.hcl.controller.CartController - New cart has been created for the user
+30350714 [http-nio-8080-exec-8] INFO  c.hcl.controller.CategoryController - The category is in-stock
+30350722 [http-nio-8080-exec-7] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+30352151 [http-nio-8080-exec-9] INFO  c.hcl.controller.ProductController - A product has been retrieved with id: 4
+30354903 [http-nio-8080-exec-10] INFO  com.hcl.controller.CartController - An item with id: 4 has been added to cart
+30355052 [http-nio-8080-exec-1] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+30359682 [http-nio-8080-exec-3] WARN  com.hcl.controller.CartController - An item with id: 4 has been deleted from cart
+30466083 [http-nio-8080-exec-7] INFO  com.hcl.controller.CartController - New cart has been created for the user
+30543115 [http-nio-8080-exec-1] INFO  com.hcl.controller.UserController - A user has been created successfully
+30547475 [http-nio-8080-exec-6] INFO  com.hcl.controller.UserController - JWT token has been generated.
+30547637 [http-nio-8080-exec-9] INFO  com.hcl.controller.CartController - New cart has been created for the user
+30549073 [http-nio-8080-exec-2] INFO  c.hcl.controller.ProductController - All products in-stock have been listed.
+30549073 [http-nio-8080-exec-5] INFO  c.hcl.controller.CategoryController - The category is in-stock
+30550058 [http-nio-8080-exec-10] INFO  c.hcl.controller.ProductController - A product has been retrieved with id: 4
+30551014 [http-nio-8080-exec-8] INFO  com.hcl.controller.CartController - An item with id: 4 has been added to cart
+30551151 [http-nio-8080-exec-4] INFO  com.hcl.controller.CartController - Cart items have been retrieved
+30556856 [http-nio-8080-exec-1] INFO  com.hcl.controller.CartController - New cart has been created for the user
+30819701 [http-nio-8080-exec-2] INFO  c.hcl.controller.CategoryController - The category is in-stock

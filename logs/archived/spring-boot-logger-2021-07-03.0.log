@@ -1,0 +1,81 @@
+31411887 [http-nio-8080-exec-7] ERROR com.hcl.controller.UserController - The credentials you entered are not valid.
+31438570 [http-nio-8080-exec-8] INFO  com.hcl.controller.UserController - A user has been created successfully
+31445273 [http-nio-8080-exec-9] ERROR com.hcl.controller.UserController - The credentials you entered are not valid.
+31715542 [http-nio-8080-exec-4] ERROR com.hcl.controller.UserController - The credentials you entered are not valid.
+31744938 [http-nio-8080-exec-7] ERROR com.hcl.controller.UserController - The credentials you entered are not valid.
+31769495 [http-nio-8080-exec-8] ERROR com.hcl.controller.UserController - The credentials you entered are not valid.
+31780764 [http-nio-8080-exec-9] INFO  com.hcl.controller.UserController - A user has been created successfully
+31784451 [http-nio-8080-exec-10] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+31803927 [http-nio-8080-exec-2] ERROR com.hcl.controller.UserController - The credentials you entered are not valid.
+31832163 [http-nio-8080-exec-1] ERROR com.hcl.controller.UserController - The credentials you entered are not valid.
+32123210 [http-nio-8080-exec-5] ERROR com.hcl.controller.UserController - The credentials you entered are not valid.
+32143846 [http-nio-8080-exec-6] ERROR com.hcl.controller.UserController - The credentials you entered are not valid.
+32187318 [http-nio-8080-exec-9] INFO  com.hcl.controller.UserController - A user has been created successfully
+32261944 [http-nio-8080-exec-1] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+32265354 [http-nio-8080-exec-3] ERROR com.hcl.controller.UserController - The credentials you entered are not valid.
+32351136 [http-nio-8080-exec-6] ERROR com.hcl.controller.UserController - The credentials you entered are not valid.
+32393276 [http-nio-8080-exec-8] ERROR com.hcl.controller.UserController - The credentials you entered are not valid.
+32559997 [http-nio-8080-exec-1] ERROR com.hcl.controller.UserController - The credentials you entered are not valid.
+32584239 [http-nio-8080-exec-3] ERROR com.hcl.controller.UserController - The credentials you entered are not valid.
+32609072 [http-nio-8080-exec-4] ERROR com.hcl.controller.UserController - The credentials you entered are not valid.
+32835648 [http-nio-8080-exec-7] ERROR com.hcl.controller.UserController - The credentials you entered are not valid.
+33028473 [http-nio-8080-exec-10] ERROR com.hcl.controller.UserController - The credentials you entered are not valid.
+33070061 [http-nio-8080-exec-1] ERROR com.hcl.controller.UserController - The credentials you entered are not valid.
+33096785 [http-nio-8080-exec-4] ERROR com.hcl.controller.UserController - The credentials you entered are not valid.
+33111691 [http-nio-8080-exec-5] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+33114559 [http-nio-8080-exec-6] INFO  com.hcl.controller.UserController - JWT token has been generated.
+33114733 [http-nio-8080-exec-8] INFO  com.hcl.controller.CartController - New cart has been created for the user
+26389 [http-nio-8080-exec-2] INFO  com.hcl.controller.UserController - A user has been created successfully
+79747 [http-nio-8080-exec-3] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+125586 [http-nio-8080-exec-4] INFO  com.hcl.controller.UserController - A user has been created successfully
+180138 [http-nio-8080-exec-5] INFO  com.hcl.controller.UserController - A user has been created successfully
+199099 [http-nio-8080-exec-6] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+203552 [http-nio-8080-exec-7] INFO  com.hcl.controller.UserController - A user has been created successfully
+210557 [http-nio-8080-exec-8] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+230360 [http-nio-8080-exec-9] INFO  com.hcl.controller.UserController - A user has been created successfully
+238254 [http-nio-8080-exec-10] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+251864 [http-nio-8080-exec-1] INFO  com.hcl.controller.UserController - A user has been created successfully
+270143 [http-nio-8080-exec-2] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+363785 [http-nio-8080-exec-3] INFO  com.hcl.controller.UserController - A user has been created successfully
+364555 [http-nio-8080-exec-4] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+368185 [http-nio-8080-exec-5] INFO  com.hcl.controller.UserController - JWT token has been generated.
+368370 [http-nio-8080-exec-6] INFO  com.hcl.controller.CartController - New cart has been created for the user
+33725319 [http-nio-8080-exec-3] INFO  com.hcl.controller.UserController - A user has been created successfully
+33735523 [http-nio-8080-exec-4] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+33748316 [http-nio-8080-exec-5] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+33760438 [http-nio-8080-exec-6] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+39689499 [http-nio-8080-exec-4] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+39719325 [http-nio-8080-exec-5] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+39721415 [http-nio-8080-exec-6] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+39722548 [http-nio-8080-exec-7] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+39725254 [http-nio-8080-exec-8] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+39896984 [http-nio-8080-exec-1] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+39951602 [http-nio-8080-exec-2] INFO  com.hcl.controller.UserController - A user has been created successfully
+39955756 [http-nio-8080-exec-3] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+75684848 [http-nio-8080-exec-7] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+76113186 [http-nio-8080-exec-8] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+76141443 [http-nio-8080-exec-9] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+76152002 [http-nio-8080-exec-10] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+76170769 [http-nio-8080-exec-1] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+76201067 [http-nio-8080-exec-2] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+76253829 [http-nio-8080-exec-3] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+76324443 [http-nio-8080-exec-4] INFO  com.hcl.controller.UserController - A user has been created successfully
+76598996 [http-nio-8080-exec-6] INFO  com.hcl.controller.UserController - A user has been created successfully
+76599020 [http-nio-8080-exec-7] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+76790587 [http-nio-8080-exec-9] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+76793786 [http-nio-8080-exec-10] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+76796452 [http-nio-8080-exec-1] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+76809740 [http-nio-8080-exec-2] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+76828580 [http-nio-8080-exec-3] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+76858119 [http-nio-8080-exec-4] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+76869988 [http-nio-8080-exec-5] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+76878390 [http-nio-8080-exec-7] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+76882326 [http-nio-8080-exec-8] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+76885451 [http-nio-8080-exec-9] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+76947223 [http-nio-8080-exec-10] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+77030460 [http-nio-8080-exec-2] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+77051114 [http-nio-8080-exec-4] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+77167524 [http-nio-8080-exec-6] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+78798278 [http-nio-8080-exec-8] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+79744589 [http-nio-8080-exec-8] ERROR com.hcl.controller.UserController - There was an error in creating a user.
+79748046 [http-nio-8080-exec-9] INFO  com.hcl.controller.UserController - A user has been created successfully

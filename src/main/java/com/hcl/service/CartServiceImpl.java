@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,7 +30,7 @@ public class CartServiceImpl implements CartService {
 
 	@Autowired
 	private ProductRepo productRepo;
-	
+
 	@Autowired
 	private UserRepo userRepo;
 
@@ -42,11 +43,11 @@ public class CartServiceImpl implements CartService {
 		Cart cart = new Cart();
 		cart.setUser(user);
 		cart.setNumCartItems(0);
-		cart.setCartItems(null);
+//		cart.setCartItems(null);
 		cartRepo.save(cart);
 //		user.setCart(cart);
 //		userRepo.save(user);
-		
+
 		return true;
 	}
 
@@ -55,7 +56,8 @@ public class CartServiceImpl implements CartService {
 		if (user == null)
 			return null;
 		Cart cart = cartRepo.findByUser(user);
-		if(cart == null) return null;
+		if (cart == null)
+			return null;
 		return cart;
 	}
 
@@ -82,6 +84,7 @@ public class CartServiceImpl implements CartService {
 			itemUpdate.setCart(cart);
 			itemUpdate.setItemQty(itemQty);
 			cart.setNumCartItems(itemQty + cart.getNumCartItems());
+			cart.addChild(itemUpdate);
 		} else {
 			double check = (double) itemUpdate.getItemQty() + itemQty;
 			if (check > (double) Integer.MAX_VALUE) {
@@ -92,7 +95,7 @@ public class CartServiceImpl implements CartService {
 			}
 		}
 		cartItemRepo.save(itemUpdate);
-		cartRepo.save(cart);
+//		cartRepo.save(cart);
 		return true;
 	}
 
@@ -105,9 +108,12 @@ public class CartServiceImpl implements CartService {
 			return false;
 //		cartItemRepo.findAllByCart(cart).forEach(x -> cartItemRepo.delete(x));
 //		cart.setUser(null);
-//		cart.setCartItems(null);
-		cartRepo.delete(cart);
-//		user.setCart(null);
+		cart.setNumCartItems(0);
+		cartRepo.save(cart);
+		cartRepo.flush();
+		cartRepo.deleteChildren(cart.getCartId());
+//		cartRepo.deleteById(cart.getCartId());
+		//		user.setCart(null);
 //		userRepo.save(user);
 		return true;
 	}
@@ -130,17 +136,20 @@ public class CartServiceImpl implements CartService {
 		if (itemQty >= itemUpdate.getItemQty()) {
 			cart.setNumCartItems(cart.getNumCartItems() - itemUpdate.getItemQty());
 //			cart.setCartItems(cart.getCartItems().stream().filter(x -> x.getCartItemId() != itemUpdate.getCartItemId()).collect(Collectors.toSet()));
-//			cart.getCartItems().forEach(x -> System.out.println(x.getCartItemId()));
+//			System.out.println("deleting");
+//			cartItemRepo.deleteById(itemUpdate.getCartItemId());
+//			cart.removeCartItem(itemUpdate);
 			cartRepo.save(cart);
-//			cartItemRepo.delete(itemUpdate);
-			cartItemRepo.deleteById(itemUpdate.getCartItemId());
-//			cartItemRepo.flush();
+			cartRepo.deleteChild(itemUpdate.getCartItemId());
+//			cartItemRepo.deleteById(itemUpdate.getCartItemId());
+//			cart.removeCartItem(itemUpdate);
+//			cartRepo.save(cart);
 			return true;
 		}
 		itemUpdate.setItemQty(itemUpdate.getItemQty() - itemQty);
 		cart.setNumCartItems(cart.getNumCartItems() - itemQty);
 		cartItemRepo.save(itemUpdate);
-		cartRepo.save(cart);
+//		cartRepo.save(cart);
 		return true;
 	}
 
