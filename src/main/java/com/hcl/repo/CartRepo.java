@@ -16,6 +16,6 @@ public interface CartRepo extends JpaRepository<Cart, Long> {
 	public void deleteChildren(Long cartId);
 	
 	@Modifying
-	@Query( "delete from Cart_Item ci where ci.cartItemId = ?1")
+	@Query( "delete from CartItem ci where ci.cartItemId = ?1")
 	public void deleteChild(Long cartItemId);
 }
