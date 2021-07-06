@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@CrossOrigin(value = "http://localhost:3000/", allowedHeaders = "*", allowCredentials = "true")
+@CrossOrigin(value = "https://capstone-front-end-react.herokuapp.com/", allowedHeaders = "*", allowCredentials = "true")
 @RestController
 @RequestMapping(path = "/testing")
 public class TestController {

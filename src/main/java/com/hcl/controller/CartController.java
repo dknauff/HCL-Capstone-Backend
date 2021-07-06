@@ -19,7 +19,7 @@ import com.hcl.model.User;
 import com.hcl.service.CartService;
 import com.hcl.service.UserService;
 
-@CrossOrigin(value = "http://localhost:3000/", allowedHeaders = "*", allowCredentials = "true")
+@CrossOrigin(value = "https://capstone-front-end-react.herokuapp.com/", allowedHeaders = "*", allowCredentials = "true")
 @RestController
 @RequestMapping(path = "/cart")
 @PreAuthorize("hasRole('ROLE_USER')")

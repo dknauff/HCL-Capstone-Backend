@@ -32,7 +32,7 @@ import com.hcl.security.JwtTokenUtil;
 import com.hcl.service.UserService;
 import com.hcl.validator.UserValidator;
 
-@CrossOrigin(value = "http://localhost:3000/", allowedHeaders = "*", allowCredentials = "true")
+@CrossOrigin(value = "https://capstone-front-end-react.herokuapp.com/", allowedHeaders = "*", allowCredentials = "true")
 @RestController
 @RequestMapping(path = "/users")
 public class UserController {

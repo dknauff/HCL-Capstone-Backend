@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 import com.hcl.model.Product;
 import com.hcl.service.ProductService;
 
-@CrossOrigin(value = "http://localhost:3000/", allowedHeaders = "*", allowCredentials = "true")
+@CrossOrigin(value = "https://capstone-front-end-react.herokuapp.com/", allowedHeaders = "*", allowCredentials = "true")
 @RestController
 @RequestMapping("/product")
 @PreAuthorize("hasRole('ROLE_USER')")
