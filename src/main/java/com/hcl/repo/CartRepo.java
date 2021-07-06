@@ -12,10 +12,10 @@ public interface CartRepo extends JpaRepository<Cart, Long> {
 	public Cart findByUser(User user);
 	
 	@Modifying
-	@Query(nativeQuery = true, value = "delete from Cart_Item ci where ci.cart_id = ?1")
+	@Query("delete from CartItem ci where ci.cartId = ?1")
 	public void deleteChildren(Long cartId);
 	
 	@Modifying
-	@Query(nativeQuery = true, value = "delete from Cart_Item ci where ci.cart_item_id = ?1")
+	@Query("delete from CartItem ci where ci.cartItemId = ?1")
 	public void deleteChild(Long cartItemId);
 }
