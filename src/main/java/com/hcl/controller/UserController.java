@@ -1,8 +1,14 @@
 package com.hcl.controller;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
@@ -10,11 +16,14 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
+import com.hcl.auth.GetAuth;
 import com.hcl.model.JwtRequest;
 import com.hcl.model.JwtResponse;
 import com.hcl.model.RefreshToken;
@@ -38,6 +47,9 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private GetAuth authService;
 	
 	@Autowired
 	private JwtTokenUtil tokenUtil;
@@ -78,6 +90,20 @@ public class UserController {
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 
+	@GetMapping(path="/role")
+	@PreAuthorize("isAuthenticated()")
+	public ResponseEntity<?> getRole(){
+		if(!authService.getAuth().isAuthenticated()) 
+			return new ResponseEntity<String>("This user is not authenticated!", HttpStatus.BAD_REQUEST);
+		
+		User user = userService.findByUsername(authService.getAuth().getName());
+		if(user == null)
+			return new ResponseEntity<String>("This user is not authenticated!", HttpStatus.BAD_REQUEST);
+		
+		List<String> roles = user.getRoles().stream().map(x -> x.getName()).collect(Collectors.toList());
+		return new ResponseEntity<List<String>>(roles, HttpStatus.OK);
+	}
+	
 	@PostMapping(path="/refresh")
 	public void resfreshJWT(@RequestBody RefreshToken rjwt) {
 		

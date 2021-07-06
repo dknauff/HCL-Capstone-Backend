@@ -14,7 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -36,9 +36,11 @@ public class Product {
     private Long productId;
     
     @NotNull
+    @Size(min = 1)
     private String name;
     
     @NotNull
+    @Size(min = 1)
     private String description;
     
     @NotNull

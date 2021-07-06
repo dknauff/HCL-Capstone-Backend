@@ -34,3 +34,9 @@ build/
 
 ### MAC OS ###
 .DS_STORE
+
+### LOGS ###
+/logs
+
+### Application.properties ###
+/src/main/resources/application.properties

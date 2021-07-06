@@ -3,7 +3,6 @@ package com.hcl.model;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -12,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.PreRemove;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -42,9 +42,22 @@ public class Cart {
 	private User user;
 	
 	//Maybe requires fetchtype.eager to function correctly
-	@OneToMany(mappedBy = "cart", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, orphanRemoval = true)
+	@OneToMany(mappedBy = "cart", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST, orphanRemoval = true)
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude
 	private Set<CartItem> cartItems;
+	
+	public void addChild(CartItem ci) {
+		this.cartItems.add(ci);
+	}
 
+	public void removeChild(CartItem ci) {
+		this.cartItems.remove(ci);
+	}
+	
+	@PreRemove
+	public void removeChildren() {
+		cartItems.forEach(x-> x.removeChild());
+		cartItems.clear();
+	}
 }
