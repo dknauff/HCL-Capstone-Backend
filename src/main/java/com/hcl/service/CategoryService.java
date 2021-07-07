@@ -61,8 +61,11 @@ public class CategoryService {
 			return null;
 		if (id == null)
 			return null;
-		category.setCategoryId(id);
-		return categoryRepo.save(category);
+		Category oldCategory = categoryRepo.getById(id);
+		if(oldCategory == null)
+			return null;
+		oldCategory.setCategoryName(category.getCategoryName());
+		return categoryRepo.save(oldCategory);
 	}
 
 	public void deleteCategory(Long id) {

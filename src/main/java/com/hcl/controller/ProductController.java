@@ -65,6 +65,7 @@ public class ProductController {
 		return new ResponseEntity<>(products, HttpStatus.OK);
 	}
 
+	@PreAuthorize("hasAnyRole('ADMIN','USER')")
 	@GetMapping("/instock")
 	public ResponseEntity<List<Product>> getAllInstockProducts() {
 		logger.info("All products in-stock have been listed.");
