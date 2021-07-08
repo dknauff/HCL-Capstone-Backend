@@ -69,9 +69,15 @@ public class ProductServiceImpl implements ProductService {
     	Category cat = categoryRepo.findById(product.getCategory().getCategoryId()).orElse(null);
     	if(cat == null)
     		return null;
-    	product.setCategory(cat);
-        product.setProductId(id);
-        return productRepo.save(product);
+    	Product oldProduct = productRepo.findById(id).orElse(null);
+    	if(oldProduct == null)
+    		return null;
+    	oldProduct.setDescription(product.getDescription());
+    	oldProduct.setImageUrl(product.getImageUrl());
+    	oldProduct.setName(product.getName());
+    	oldProduct.setPrice(product.getPrice());
+    	oldProduct.setCategory(cat);
+        return productRepo.save(oldProduct);
     }
 
     
