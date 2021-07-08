@@ -64,17 +64,17 @@ public class OrderController {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 		
-//		Cart cart = cartService.findCartByUser(user);
-//		
-//		if(cart == null)
-//			return new ResponseEntity<String>("Cart is empty", HttpStatus.BAD_REQUEST);
-//		
-//		Order generateOrder = orderService.generateOrder(cart);
-//		
-//		if(generateOrder == null)
-//			return new ResponseEntity<String>("Error putting in order", HttpStatus.BAD_REQUEST);
-//		boolean didCreate = orderService.createOrder(generateOrder, user);
-		boolean didCreate = orderService.createOrder(order, user);
+		Cart cart = cartService.findCartByUser(user);
+		
+		if(cart == null)
+			return new ResponseEntity<String>("Cart is empty", HttpStatus.BAD_REQUEST);
+		
+		Order generateOrder = orderService.generateOrder(cart);
+		
+		if(generateOrder == null)
+			return new ResponseEntity<String>("Error putting in order", HttpStatus.BAD_REQUEST);
+		boolean didCreate = orderService.createOrder(generateOrder, user);
+//		boolean didCreate = orderService.createOrder(order, user);
 		logger.info("A new order has been created.");
 		return didCreate ? new ResponseEntity<>(HttpStatus.CREATED) : new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		

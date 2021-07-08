@@ -71,6 +71,8 @@ public class OrderServiceImpl implements OrderService {
 		}).collect(Collectors.toSet()));
 		if (order.getOrderItems().isEmpty())
 			return null;
+		double sum = order.getOrderItems().stream().mapToDouble(x -> x.getItemQuantity() * x.getProduct().getPrice()).sum();
+		order.setTotalCost(sum);
 		return order;
 	}
 
